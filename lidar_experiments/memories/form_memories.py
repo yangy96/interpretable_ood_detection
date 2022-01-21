@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 # sys.path.append("../memories/")
 from memories.memorization import memory, memorization
 from crash_prediction.predict_crash import compute_crash_prediction_accuracy
-
+import os
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -30,11 +30,13 @@ def run_crash_prediction(memory_dir, source_dir, window_size, prob_threshold, wi
     stats = compute_crash_prediction_accuracy(source_dir, memorization_object,window_size, window_threshold, prob_threshold)
     #print("Stats computed - ", stats)
     print("(W: %s tau: %s alpha: %s dist: %s) " % (str(window_size),str(window_threshold),str(prob_threshold),str(dist)))
-    print("TPR: ",stats["correct_prediction_percent"])
-    print("FPR: ",stats["false_predictions"])
-    print("MPR: ",stats["missed_predictions"])
+    f = open("./results/lidar_exp_results.txt", "a")
     if (len(stats["alarm time ahead"]) > 0):
-        print("Avg Forecast: ",round(sum(stats["alarm time ahead"])/len(stats["alarm time ahead"]),2))
+        print(("TPR: %f FPR: %f MPR: %f Avg Forecast: %f ") %( stats["correct_prediction_percent"], stats["false_predictions"] ,stats["missed_predictions"],round(sum(stats["alarm time ahead"])/len(stats["alarm time ahead"]),2)))
+        f.write("TPR: {} FPR: {} MPR: {} Avg Forecast: {} \n ".format(str(stats["correct_prediction_percent"]), str(stats["false_predictions"]),str(stats["missed_predictions"]),str(round(sum(stats["alarm time ahead"])/len(stats["alarm time ahead"]),2))))
     else:
-        print("Avg Forecast: N/A")   
+        print(("TPR: %f FPR: %f MPR: %f Avg Forecast: N/A ") %( stats["correct_prediction_percent"], stats["false_predictions"] ,stats["missed_predictions"])) 
+        f.write("TPR: {} FPR: {} MPR: {} Avg Forecast: N/A \n ".format(str(stats["correct_prediction_percent"]), str(stats["false_predictions"]),str(stats["missed_predictions"])))
+    
+    f.close()  
     return stats

@@ -134,7 +134,7 @@ def compute_crash_prediction_accuracy(source_dir, memorization_object,window_siz
         else:
             results_stat["false_predictions"] = 0
         results_stat["missed_predictions"] = np.round( (float(missed_predictions / real_crash_count)) * 100, 2)
-    results_stat["evaluate_time_list"] = evaluate_time_list
+    #results_stat["evaluate_time_list"] = evaluate_time_list
     results_stat["alarm time ahead"] = alarm_time_list
     results_stat["alarm time delay"] = delay_time_list
     #print("correct_prediction_percent ",results_stat["correct_prediction_percent"])

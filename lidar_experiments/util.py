@@ -33,7 +33,7 @@ def plot_one_result(memory_dir,window_size,dist,prob):
     #plt.title("correct prediction rate versus threshold/window")
     plt.ylabel("True Prediction Rate",fontsize=18,weight="bold")
     plt.xlabel("Threshold/Window",fontsize=18,weight="bold")
-    plt.savefig("p_correct_prediction_lidar.png",bbox_inches='tight')
+    plt.savefig("./results/p_correct_prediction_lidar_(10.a).png",bbox_inches='tight')
     plt.close() 
     plt.figure()
 
@@ -45,7 +45,7 @@ def plot_one_result(memory_dir,window_size,dist,prob):
     #plt.title("false prediction rate versus threshold/window")
     plt.ylabel("False Prediction Rate",fontsize=18,weight="bold")
     plt.xlabel("Threshold/Window",fontsize=18,weight="bold")
-    plt.savefig("p_false_prediction_lidar.png",bbox_inches='tight')
+    plt.savefig("./results/p_false_prediction_lidar_(10.b).png",bbox_inches='tight')
     plt.close() 
 
 def plot_saved_ablation_result():

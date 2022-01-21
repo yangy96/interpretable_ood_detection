@@ -46,7 +46,7 @@ class memorization :
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.memory_suffix = "_memory"
 
-        print("Reading all the lidar scans into a tensor dictionary ..... ")
+        #print("Reading all the lidar scans into a tensor dictionary ..... ")
         t0 = time.time()
 
         if self.source_dir:
