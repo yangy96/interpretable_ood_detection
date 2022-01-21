@@ -36,13 +36,13 @@ if using venv, `deactivate`
 
 ## To run OOD experiments to detect change in carla simulation (section 6.1 & 6.2)
 run `cd carla_experiments` <br>
-more details could be found in README.md in the carla_experiments 
+more details could be found in *README.md* in the carla_experiments 
 
 ## To run OOD experiments to detect perturbations by adversarial attack (section 6.3)
 run `cd carla_adversarial_experiments` <br>
-more details could be found in README.md in the carla_adversarial_experiments
+more details could be found in *README.md* in the carla_adversarial_experiments
 
 ## To run OOD experiments for lidar data (section 7.3)
 run `cd lidar_experiments` <br>
-more details could be found in README.md in the lidar_experiments
+more details could be found in *README.md* in the lidar_experiments
 
