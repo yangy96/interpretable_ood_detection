@@ -37,7 +37,7 @@ if __name__ == "__main__":
     
     if args.predict_carla :
         stats = form_memories.run_carla_prediction(args.memory_dir, args.test_carla_dir, args.initial_memory_threshold, args.detect_threshold, args.prob_threshold, args.window_size,args.window_threshold, args.task)
-        with open("./results/ood_result"+"_"+args.task+args.memory_dir.split("/")[-1]+"_"+str(args.window_size)+"_"+str(args.prob_threshold)+"_"+str(args.window_threshold)+".json", 'w') as outfile:
+        with open("./results/ood_result"+"_"+args.task+"_"+args.memory_dir.split("/")[-1]+"_"+str(args.window_size)+"_"+str(args.prob_threshold)+"_"+str(args.window_threshold)+".json", 'w') as outfile:
             json.dump(stats, outfile)
         outfile.close()
     

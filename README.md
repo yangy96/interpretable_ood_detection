@@ -1,7 +1,9 @@
 # Artifact Evaluation 
 artifact evaluation for *Interpretable Detection of Distribution Shifts in Learning Enabled Cyber-Physical Systems*
 
-## Firstly, please download all necessary data files to the place
+## Step 1) Download the repo and required datasets
+
+`git clone https://github.com/yangy96/interpretable_ood_detection.git`
 
 `cd carla_experiments`
 
@@ -15,34 +17,36 @@ TO DO: put a download link here
 
 `cd ../`
 
-### Environment set up
+## Step 2) Environment set up
 
-#### Docker
-To build a docker image: `docker build -t reproduce-test .` <br>
-To run the docker container and open an interactive session with docker: `docker run -i -t --gpus all --name temp_test --rm reproduce-test /bin/bash`
+To set up environment and install dependancies to run our experiments: you can choose either Docker container or virtual environment 
 
-If succeed, reproduce the following experiments in docker container 
+### Docker
+1. install [Docker](https://docs.docker.com/get-docker/) on your machine 
+2. To build a docker image: `docker build -t reproduce-test .` <br>
+3. To run the docker container and open an interactive session with docker: `docker run -i -t --gpus all --name temp_test --rm reproduce-test /bin/bash`
 
-#### Virtual Environment 
-If there is any error occur with docker instantiation, could also run <br>
-- `python3 -m venv env`
-- `source env/bin/activate`
-- `pip install -r requirements.txt`
-and reproduce following experiments <br>
+After finishing the experiments, to leave the virtual environment, 
+run `exit` <br>
 
-After finishing the experiments, to leave the virtual environment <br>
-if using Docker container, `exit` <br>
-if using venv, `deactivate`
+### Virtual Environment 
+1. Create a virtual environment: `python3 -m venv env`
+2. Acativate environment: `source env/bin/activate`
+3. To install all packages: `pip install -r requirements.txt`
 
-## To run OOD experiments to detect change in carla simulation (section 6.1 & 6.2)
+After finishing the experiments, to leave the virtual environment, if using venv, `deactivate`
+
+## Step 3) To reproduce our OOD experiments 
+
+### To run OOD experiments to detect change in carla simulation (section 6.1 & 6.2)
 run `cd carla_experiments` <br>
 more details could be found in *README.md* in the carla_experiments 
 
-## To run OOD experiments to detect perturbations by adversarial attack (section 6.3)
+### To run OOD experiments to detect perturbations by adversarial attack (section 6.3)
 run `cd carla_adversarial_experiments` <br>
 more details could be found in *README.md* in the carla_adversarial_experiments
 
-## To run OOD experiments for lidar data (section 7.3)
+### To run OOD experiments for lidar data (section 7.3)
 run `cd lidar_experiments` <br>
 more details could be found in *README.md* in the lidar_experiments
 
