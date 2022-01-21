@@ -3,19 +3,19 @@ artifact evaluation for *Interpretable Detection of Distribution Shifts in Learn
 
 ## Step 1) Download the repo and required datasets
 
-`git clone https://github.com/yangy96/interpretable_ood_detection.git`
+1. `git clone https://github.com/yangy96/interpretable_ood_detection.git`
 
-`cd carla_experiments`
+2. `cd carla_experiments`
 
 TO DO : put a download link here 
 
-`cd ../`
+3. `cd ../`
 
-`cd carla_adversarial_experiments`
+4. `cd carla_adversarial_experiments`
 
 TO DO: put a download link here 
 
-`cd ../`
+5. `cd ../`
 
 ## Step 2) Environment set up
 
