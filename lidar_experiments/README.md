@@ -7,8 +7,8 @@ please run `python3 main.py --predict_crash True --memory_dir ./memories/LIDAR_m
 ## To reproduce the results in Table 5
 
 run 
-- `chmod 777 run_lidar_experiment.sh`
-- `./run_lidar_experiment.sh`
+- `chmod 777 run_lidar_experiments.sh`
+- `./run_lidar_experiments.sh`
 
 It takes about 20 minutes to finish the experiments <br>
 When the script finishes (after viewing **"finish experiment 4/4"**), it will print out all the experimental results and you can also find the results in *./results/lidar_exp_results.txt*
@@ -28,11 +28,11 @@ Note: I am currently running dumped results <br>
 
 When the script finishes (after viewing **"finish dump images**), please find the plots in *./results/lidar_exp_results.txt*
 
-## To produce memories
+## To generate memories
 
-We already provide the memories we used in experiments, if want to reproduce the memories, <br>
+We already provide the memories we used in experiments (in *./memories/LIDAR_memories_0.2* & *LIDAR_memories_0.3*), if want to generate the memories, <br>
 run 
 - `chmod 777 run_lidar_memory_generation.sh`
 - `./run_lidar_memory_generation.sh`
 
-but note this script overwrite the memories we provided and this new set of memory is not exactly the same as the original one. <br>
+but note this script overwrite the memories we provided and this new set of memory is not exactly the same as the original one. Please find the memories in *./memories/LIDAR_memories_0.2* & *./memories/LIDAR_memories_0.3* <br>

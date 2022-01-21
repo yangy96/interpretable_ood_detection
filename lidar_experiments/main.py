@@ -27,8 +27,8 @@ if __name__ == "__main__":
     parser.add_argument("--prob_threshold", type = float, default = 0.4 , help = "probability threshold of detection")
     parser.add_argument("--window_size", type = int, default = 10 , help = "window size")
     parser.add_argument("--window_threshold", type = int, default = 5 , help = "window threshold")
-    parser.add_argument("--plot_one_result", type = bool, default = False , help = "window threshold")
-    parser.add_argument("--plot_full_abalation", type = bool, default = False , help = "window threshold")
+    parser.add_argument("--plot_one_result", type = bool, default = False , help = "plot for one graph only")
+    parser.add_argument("--plot_full_abalation", type = bool, default = False , help = "plot for full abalation")
 
     args = parser.parse_args()
 
