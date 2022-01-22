@@ -38,4 +38,4 @@ The above experiments use the memories that were used in the experiments for the
 - `chmod 777 run_lidar_memory_generation.sh`
 - `./run_lidar_memory_generation.sh`
 
-but note this script overwrite the memories we provided and this new set of memory is not exactly the same as the original one. Please find the memories in *./memories/LIDAR_memories_0.2* & *./memories/LIDAR_memories_0.3* <br>
+Note: The generated memories might differ from the exisitng ones, depending on the random seed. 
