@@ -32,11 +32,11 @@ Note: I am currently running dumped results <br>
 
 When the script finishes (after viewing **"finish dump images**), please find the plots in *./results/lidar_exp_results.txt*
 
-## To generate memories
+## To generate memories from scratch (Optional)
 
-We already provide the memories we used in experiments (in *./memories/LIDAR_memories_0.2* & *LIDAR_memories_0.3*), if want to generate the memories, <br>
-run 
+The above experiments use the memories that were used in the experiments for the paper (in *./memories/LIDAR_memories_0.2* & *LIDAR_memories_0.3*). If you want to generate the memories from scratch and then run the aboove experiments, then please run the following commands before running the experiments for Table 5 and Figure 10 <br>
+
 - `chmod 777 run_lidar_memory_generation.sh`
 - `./run_lidar_memory_generation.sh`
 
-but note this script overwrite the memories we provided and this new set of memory is not exactly the same as the original one. Please find the memories in *./memories/LIDAR_memories_0.2* & *./memories/LIDAR_memories_0.3* <br>
+Note: The generated memories might differ from the exisitng ones, depending on the random seed. 
