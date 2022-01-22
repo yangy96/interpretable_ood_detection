@@ -9,7 +9,7 @@ This step is for downloading the code and required datasets (download required f
 
 1. `git clone https://github.com/yangy96/interpretable_ood_detection.git`
 
-2. `cd interpretable_ood_detection/`
+2. `cd interpretable_ood_detection`
 
 3. `cd carla_experiments`
 
@@ -64,6 +64,6 @@ run `cd carla_adversarial_experiments` <br>
 Follow instructions in carla_adversarial_experiments/*README.md*
 
 ### To run OOD experiments for lidar data (section 7.3)
-run `cd ../lidar_experiments` <br>
+run `cd lidar_experiments` <br>
 Follow instructions in lidar_experiments/*README.md*
 
