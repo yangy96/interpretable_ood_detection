@@ -53,6 +53,6 @@ run `cd carla_adversarial_experiments` <br>
 Follow instructions in carla_adversarial_experiments/*README.md*
 
 ### To run OOD experiments for lidar data (section 7.3)
-run `cd ../lidar_experiments` <br>
+run `cd lidar_experiments` <br>
 Follow instructions in lidar_experiments/*README.md*
 
