@@ -17,7 +17,7 @@ Please download data under this link: https://drive.google.com/file/d/1I1Rm-EziR
 
 (Note: the data used in this experiment is about 16GB)
 
-4. `tar -xzvf carla_data.tar`
+4. `tar -xvf carla_data.tar`
 
 5. `cd ../`
 

@@ -48,7 +48,7 @@ class memorization :
         self.source_dir = source_dir
         self.memory_dir = saving_dir
 
-        self.device = torch.device("cuda:3" if torch.cuda.is_available() else "cpu")
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.memory_suffix = "_memory"
 
 
