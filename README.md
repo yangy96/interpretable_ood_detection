@@ -21,7 +21,9 @@ TO DO: put a download link here
 
 ## Step 2) Environment set up
 
-This step is for seting up the environment and installing the dependancies for running our experiments. Please choose one of these: Docker or virtual environment 
+This step is for seting up the environment and installing the dependancies for running our experiments. 
+
+Please choose one of these: Docker or virtual environment 
 
 ### Docker
 1. install [Docker](https://docs.docker.com/get-docker/) on your machine 
