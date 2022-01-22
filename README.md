@@ -7,7 +7,7 @@ Please follow the steps below to reproduce the results.
 
 1. `git clone https://github.com/yangy96/interpretable_ood_detection.git`
 
-2. `cd interpretable_ood_detection/carla_experiments`
+2. `cd interpretable_ood_detection`
 
 TO DO : put a download link here 
 
