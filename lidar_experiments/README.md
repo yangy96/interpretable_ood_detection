@@ -12,7 +12,7 @@ It takes about 20 minutes for generating results of the entire Table 5, i.e. run
 When the script finishes (i.e. after printing **"finish experiment 4/4"**), you will see all the experimental results printed on console. You can also find the results in *./results/lidar_exp_results.txt*
 
 ## To reproduce Figure 10
-We find that it takes about 14 hours to reproduce Figure 10 (12 plots total), so we provide a script to generate one plot. <br>
+We find that it takes about 14 hours to reproduce Figure 10 (12 plots total and ? points in each plot), so we provide a script to generate one plot. <br>
 run 
 - `chmod 777 run_lidar_experiments_plot.sh`
 - `./run_lidar_experiments_plot.sh`
