@@ -18,7 +18,7 @@ When the script finishes (i.e. after printing **"finish experiment 4/4"**), you 
 
 ## To reproduce Figure 10
 We find that it takes about 14 hours to reproduce Figure 10 (12 plots total and ? points in each plot), so we provide a script to generate one plot. <br>
-run 
+
 - `chmod 777 run_lidar_experiments_plot.sh`
 - `./run_lidar_experiments_plot.sh`
 
