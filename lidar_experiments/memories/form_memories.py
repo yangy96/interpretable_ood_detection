@@ -24,11 +24,11 @@ def run_crash_prediction(memory_dir, source_dir, window_size, prob_threshold, wi
     memorization_object.load_memories(expand_radius = 0.1)
 
     dist = memory_dir.split("/")[-1].split("_")[-1]
-    stats = compute_crash_prediction_accuracy(source_dir, memorization_object,window_size, window_threshold, prob_threshold)
 
     f = open("./results/lidar_exp_results.txt", "a")
     print("(W: %s tau: %s alpha: %s dist: %s) " % (str(window_size),str(window_threshold),str(prob_threshold),str(dist)))
     f.write("(W: {} tau: {} alpha: {} dist: {} ) \n".format(str(window_size),str(window_threshold),str(prob_threshold),str(dist)))
+    stats = compute_crash_prediction_accuracy(source_dir, memorization_object,window_size, window_threshold, prob_threshold)
     
     if (len(stats["alarm time ahead"]) > 0):
         print(("TPR: %f FPR: %f MPR: %f Avg Forecast: %f ") %( stats["correct_prediction_percent"], stats["false_predictions"] ,stats["missed_predictions"],round(sum(stats["alarm time ahead"])/len(stats["alarm time ahead"]),2)))
