@@ -36,7 +36,9 @@ run `exit` <br>
 ### Virtual Environment 
 1. Create a virtual environment: `python3 -m venv env`
 2. Activate environment: `source env/bin/activate`
-3. To install all packages: `pip install -r requirements.txt`
+3. Update pip tool: `pip3 install -U pip`
+                    `pip3 install -U setuptools`
+4. To install all packages: `pip install -r requirements.txt`
 
 After finishing the experiments, to leave the virtual environment, if using venv, `deactivate`
 
