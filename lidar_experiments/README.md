@@ -2,9 +2,9 @@
 
 ## To reproduce the results in Table 5
 
-run 
-- for generating results for 1 row of the table, ex. W (window_size) = 40, tau (window_threshold) = 15, alpha (prob_threshold) = 0.05, d (LIDAR_memories_$0.3$) = 0.3: 
-`python3 main.py --predict_crash True --memory_dir ./memories/LIDAR_memories_0.3 --prob_threshold 0.05 --window_size 40 --window_threshold 15`
+- for generating results for 1 row of the table, ex. W (window_size) = 40, tau (window_threshold) = 15, alpha (prob_threshold) = 0.05, d (initial_memory_threshold) = 0.3 and LIDAR_memories_$0.3$ = 0.3: 
+`python3 main.py --predict_crash True --memory_dir ./memories/LIDAR_memories_0.3 --prob_threshold 0.05 --window_size 40 --window_threshold 15 --initial_memory_threshold 0.3`
+- for generating results for the entire table (4 rows), please run the following two commands:
 - `chmod 777 run_lidar_experiments.sh`
 - `./run_lidar_experiments.sh`
 
