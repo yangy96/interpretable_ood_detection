@@ -5,7 +5,7 @@ Artifact evaluation for *Interpretable Detection of Distribution Shifts in Learn
 
 1. `git clone https://github.com/yangy96/interpretable_ood_detection.git`
 
-2. `cd carla_experiments`
+2. `cd interpretable_ood_detection/carla_experiments`
 
 TO DO : put a download link here 
 
