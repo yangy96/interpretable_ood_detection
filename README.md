@@ -44,13 +44,13 @@ After finishing the experiments, to leave the virtual environment, if using venv
 
 ### To run OOD experiments to detect change in carla simulation (section 6.1 & 6.2)
 run `cd carla_experiments` <br>
-more details could be found in *README.md* in the carla_experiments 
+Follow instructions in carla_experiments/*README.md*
 
 ### To run OOD experiments to detect perturbations by adversarial attack (section 6.3)
 run `cd carla_adversarial_experiments` <br>
-more details could be found in *README.md* in the carla_adversarial_experiments
+Follow instructions in carla_adversarial_experiments/*README.md*
 
 ### To run OOD experiments for lidar data (section 7.3)
-run `cd lidar_experiments` <br>
-more details could be found in *README.md* in the lidar_experiments
+run `cd ../lidar_experiments` <br>
+Follow instructions in lidar_experiments/*README.md*
 
