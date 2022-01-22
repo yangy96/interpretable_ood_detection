@@ -1,0 +1,10 @@
+(W: 40 tau: 15 alpha: 0.05 dist: 0.3 ) 
+TPR: 80.36 FPR: 19.35 MPR: 10.71 Avg Forecast: 9.69 
+(W: 40 tau: 17 alpha: 0.1 dist: 0.3 ) 
+TPR: 82.14 FPR: 22.73 MPR: 8.93 Avg Forecast: 9.8 
+(W: 40 tau: 11 alpha: 0.05 dist: 0.2 ) 
+TPR: 80.36 FPR: 22.22 MPR: 12.5 Avg Forecast: 12.67 
+(W: 40 tau: 15 alpha: 0.1 dist: 0.2 ) 
+TPR: 80.36 FPR: 21.88 MPR: 10.71 Avg Forecast: 10.4 
+(W: 40 tau: 15 alpha: 0.05 dist: 0.3 ) 
+TPR: 80.36 FPR: 19.35 MPR: 10.71 Avg Forecast: 9.69 

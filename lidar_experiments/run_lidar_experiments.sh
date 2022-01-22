@@ -1,3 +1,4 @@
+rm -f ./results/lidar_exp_results.txt
 
 python3 main.py --predict_crash True --memory_dir ./memories/LIDAR_memories_0.3 --initial_memory_threshold 0.3 \
 --prob_threshold 0.05 --window_size 40 --window_threshold 15

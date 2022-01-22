@@ -1,0 +1,1 @@
+{"real_crash_percent": 23.83, "crash_predicted_percent": 26.81, "correct_prediction_percent": 80.36, "false_predictions": 22.22, "missed_predictions": 12.5, "alarm time ahead": [8, 3, 10, 4, 7, 6, 4, 19, 18, 9, 19, 12, 23, 7, 10, 16, 14, 22, 16, 11, 8, 21, 12, 12, 13, 12, 11, 11, 14, 9, 17, 9, 10, 20, 16, 12, 13, 2, 20, 11, 20, 15, 7, 15, 22], "alarm time delay": [4, 0, 2, 4]}
