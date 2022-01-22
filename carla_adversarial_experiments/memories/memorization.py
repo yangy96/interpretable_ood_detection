@@ -52,10 +52,9 @@ class memorization :
         self.source_dir = source_dir
         self.memory_dir = saving_dir
 
-        self.device = torch.device("cuda:2" if torch.cuda.is_available() else "cpu")
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.memory_suffix = "_memory"
 
-        #print("Reading all the lidar scans into a tensor dictionary ..... ")
         t0 = time.time()
 
         if self.source_dir:
@@ -67,22 +66,14 @@ class memorization :
                     if(file.endswith("png") ):
 
                         filename = os.path.join(root,file)
-                        #python_file = open(filename)
-                        #time_stamped_lidar = json.load(python_file)
-                        #for each_time_stamp in time_stamped_lidar.keys():
-                        #lidar_scan = time_stamped_lidar[each_time_stamp]
-
                         current_data = carla_data(self.device)
                         current_data.create_data_from_scan(filename)
                         self.data_container[filename] = \
                         {"data": current_data, "files": {"image" : filename} }
                         
-                        #self.data_container[file + "_" + str(each_time_stamp)] = \
-                        #{"data": current_data, "files": {"image" : file + "_" + str(each_time_stamp), "time" : each_time_stamp} }
-                        #python_file.close()
 
             t1 = time.time()
-            # done. Time taken - ",  t1-t0, " seconds. No of lidar scans - ", len(self.data_container))
+    
 
         self.current_memory_dictionary = {}
 
@@ -90,8 +81,6 @@ class memorization :
 
         assert self.source_dir
 
-        #if verbosity:
-        #    print("Learning initial memories - ")
 
         unsolved_set = set()
         for name in self.data_container.keys() :
@@ -101,7 +90,6 @@ class memorization :
 
         memory_index = 1
         while len(unsolved_set) > 0 :
-            #print("unsolved_set length", len(unsolved_set))
             dir_name = str(memory_index).zfill(f_zeros) + self.memory_suffix
             current_memory_dir = os.path.join(self.memory_dir, dir_name)
 
@@ -147,8 +135,6 @@ class memorization :
 
             memories_count = len(self.current_memory_dictionary)
 
-            #if verbosity :
-            #    print("Number of memories learnt - ", memories_count)
 
             # This distance maps every data file name to a list of medoid names, in ascending order of distance
             medoid_to_data_distance, data_to_medoid_distance = self.compute_all_distances()
@@ -162,7 +148,6 @@ class memorization :
 
             # If new cost is less than current best cost, take the change
             if (new_cost is not None) and new_cost < current_cost :
-                #print("Updating new cost - ", new_cost)
                 current_cost = new_cost
 
             if current_cost < best_cost:
@@ -173,8 +158,6 @@ class memorization :
                 else:
                     best_memory_dictionary.clear()
                     best_memory_dictionary = dc(self.current_memory_dictionary)
-            #else:
-            #    new_memory_dictionary.clear()
 
 
         if any(best_memory_dictionary):
@@ -428,7 +411,6 @@ class memorization :
         for memory_name in self.current_memory_dictionary.keys():
             self.current_memory_dictionary[memory_name].distance_score[0] += float(delta)
             
-            # print("At memory - ", memory_name, " dist - ", self.current_memory_dictionary[memory_name].distance_score[0])
 
     def load_memories(self, expand_radius = 0.52):
 
@@ -468,7 +450,6 @@ class memorization :
     def dump_memory_distance(self,memory_dir):
         data_dictionary = {}
         for each_memory in self.current_memory_dictionary.keys():
-            #print(each_memory)
             data_dictionary[each_memory] = {"data" : self.current_memory_dictionary[each_memory].data_point,\
             "files" : {"image" : None } }
         for each_memory in self.current_memory_dictionary.keys():
@@ -476,7 +457,6 @@ class memorization :
             for i in all_distances.keys():
                 all_distances[i]=float(all_distances[i])
             self.current_memory_dictionary[each_memory].save_distance_other_memories(os.path.join(memory_dir,each_memory),all_distances)
-            #print("finish one memory")
             
 
 
@@ -486,7 +466,7 @@ class memorization :
         # Form like a dummy memory from the lesion files
         
         test_memory = memory(self.device)
-        #print("memory_device",self.device)
+
         test_memory.create_memory_from_files(data_files)
 
         start = time.time()
@@ -496,28 +476,8 @@ class memorization :
         for each_memory in self.current_memory_dictionary.keys():
             data_dictionary[each_memory] = {"data" : self.current_memory_dictionary[each_memory].data_point,\
             "files" : {"image" : None } }
-            #print(self.current_memory_dictionary[each_memory].data_point)
         data_dictionary_copy = dc(data_dictionary)
         
-        """for i in range(5):
-            if (len(data_dictionary_copy) == 0):
-                break
-            
-            idx = random.randint(0, len(data_dictionary_copy)-1)
-            select_key  = list(data_dictionary_copy.keys())[idx]
-            select_memory={}
-            select_memory[select_key] = data_dictionary_copy[select_key]
-            select_distances = test_memory.data_point.compute_distance_batched(select_memory)
-            distance = float(select_distances[select_key])
-            distance_lists = self.current_memory_dictionary[select_key].read_other_distances(os.path.join(self.memory_dir,select_key))
-
-            #print(self.current_memory_dictionary[select_key].distance_score[0])
-            #float(distance_lists[j])
-            for j in distance_lists.keys():
-                if(j in data_dictionary_copy):
-                    if(j != select_key and self.current_memory_dictionary[j].distance_score[0] <= abs(0.5 - distance)):
-                        data_dictionary_copy.pop(j)
-            #print(len(data_dictionary_copy))"""
         if (len(data_dictionary_copy) == 0):
             return None, {}
 
@@ -531,17 +491,13 @@ class memorization :
 
         closest_memory = None
         for memory_name in all_distances.keys():
-            # print("memory - ", memory_name, " is at distance - ", all_distances[memory_name], end = " ")
 
             current_threshold = self.current_memory_dictionary[memory_name].distance_score[0]
             if all_distances[memory_name] < min_dist:
-                #all_distances[memory_name] < 0.5 and 
                 distances[memory_name] = all_distances[memory_name]
                 min_dist = distances[memory_name]
                 closest_memory = memory_name
                 
-        # print("\n")
-        # sys.exit()
         
         prob_density = self.probability_density_estimation(all_distances,initial_memory_threshold)
 
@@ -562,7 +518,6 @@ class memorization :
         for i in selected_distance.keys():
             total += self.current_memory_dictionary[i].weight
 
-        #print(selected_distance)
         for each_memory in selected_distance.keys():
             prob_density += self.current_memory_dictionary[each_memory].weight/total*epanechnikov_kernel(selected_distance[each_memory],bandwidth)
 

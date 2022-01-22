@@ -115,7 +115,6 @@ class memory:
 
         all_distances = self.data_point.compute_distance_batched(all_data_collection)
         count = 0
-        #print("len: ",len(all_distances.keys()))
         for name in all_distances.keys():
 
             if all_distances[name] < self.distance_score[0]:
@@ -127,7 +126,5 @@ class memory:
                     unsolved_set.remove(name)
                 else:
                     pass
-        #print(len(unsolved_set))
-        #print("count",count)
 
         return unsolved_set, all_distances

@@ -10,7 +10,6 @@ from scipy.ndimage import rotate, shift
 import json
 import math
 sys.path.append("./distance_calculations")
-# print(sys.path)
 import find_features
 from pytorch_modified_msssim import ssim, ms_ssim, SSIM, MS_SSIM
 
@@ -18,8 +17,6 @@ def shift_image(input_PIL, shift = [3,3]):
     np_I = np.asarray(input_PIL)
     trans_I = np.zeros_like(np_I)
     shape = np_I.shape
-
-    #print("Shape - ", np_I)
 
     row_low = max(shift[0], 0)
     row_high = min(shape[0] + shift[0], shape[0])
@@ -31,7 +28,7 @@ def shift_image(input_PIL, shift = [3,3]):
         for c in range(col_low, col_high):
             trans_I[r, c] = np_I[r, c]
 
-    # print("Output shape - ", trans_I.shape)
+
     return_image = Image.fromarray(np.uint8(trans_I))
     return return_image
 
@@ -48,12 +45,8 @@ def load_memory(memory_folder,size,device,shift_range=2,shift_delta=1,angle_rang
                 jsons.append(os.path.join(root, file))
     memory_lists=[]
     memory_features=[]
-    #print(len(memories))
     for memory,json_ in zip(memories,jsons):
         im = Image.open(memory)
-        #image_lab = cv2.cvtColor(np.array(im), cv2.COLOR_BGR2LAB)
-        #im = np.zeros((image_lab.shape[0], image_lab.shape[1]))
-        #im[:, :] = image_lab[:, :, 0]
         im = transforms.ToTensor()(im).to(device)
         memory_lists.append(im)
         memory_split=memory.split("/")
@@ -88,10 +81,7 @@ def compute_distance(memory_idx,memory_path, solved_imgs_list, unsolved_imgs_lis
     x_list = []
     for path in imgs_list:
         im = np.array(Image.open(path))
-        #image_lab = cv2.cvtColor(im, cv2.COLOR_BGR2LAB)
-        #im = np.zeros((image_lab.shape[0], image_lab.shape[1]))
-        #im[:, :] = image_lab[:, :, 0]
-        #im = cv2.normalize(im, None, 0, 255, cv2.NORM_MINMAX)
+
         if padding:
             im = cv2.copyMakeBorder(im,10,10,10,10,cv2.BORDER_CONSTANT,value=[0,0,0])
         im = transforms.ToTensor()(im)
@@ -112,10 +102,7 @@ def compute_distance(memory_idx,memory_path, solved_imgs_list, unsolved_imgs_lis
         else:
             end_idx = split + 100
         memory = np.array(Image.open(memory_path))
-        #image_lab = cv2.cvtColor(memory, cv2.COLOR_BGR2LAB)
-        #memory = np.zeros((memory.shape[0], memory.shape[1]))
-        #memory[:, :] = image_lab[:, :, 0]
-        #memory = cv2.normalize(memory,None, 0, 255, cv2.NORM_MINMAX)
+
         if padding:
             memory = cv2.copyMakeBorder(memory,10,10,10,10,cv2.BORDER_CONSTANT,value=[0,0,0])
         memory = transforms.ToTensor()(memory)
@@ -125,29 +112,25 @@ def compute_distance(memory_idx,memory_path, solved_imgs_list, unsolved_imgs_lis
         json_path="./lesion_images"+"/"+memory_split[-2]+"/"+memory_split[-1][:-4]+".json"
         mem_feature = return_feature_vector(memory_path,mask_path,json_path)
         mem_feature = mem_feature[2:]
-        #mem_shape = torch.full((end_idx-split,1), read_json(memory_path),dtype=torch.float32).to(device)
+
         mem_shape = torch.tensor(mem_feature,dtype=torch.float32).to(device).repeat((end_idx-split,1))
         seg_dist=[]
         seg_features=[]
         for img_path in imgs_list[split:end_idx]:
-            #img_size.append(read_json(img_path))
+
             img_path_=img_path.split("/")
             mask_path="./mask"+"/"+img_path_[-2]+"/"+img_path_[-1][:-4]+"_mask.png"
             json_path="./lesion_images"+"/"+img_path_[-2]+"/"+img_path_[-1][:-4]+".json"
             seg_feature = return_feature_vector(img_path,mask_path,json_path)
             seg_feature = seg_feature[2:]
             seg_features.append(seg_feature)
-            #seg_dist.append(np.linalg.norm(seg_feature-mem_feature))
-            #dist_ = math.sqrt((0.05*((seg_feature[0]-mem_feature[0])**2)+0.05*((seg_feature[1]-mem_feature[1])**2)+0.1*((seg_feature[2]-mem_feature[2])**2) \
-            #    +0.4*((seg_feature[3]-mem_feature[3])**2)**2+0.1*((seg_feature[4]-mem_feature[4])**2)+0.1*((seg_feature[5]-mem_feature[5])**2) \
-            #    +0.2*((seg_feature[6]-mem_feature[6])**2)))
-            #seg_dist.append(dist_)
+
 
         seg_features = torch.tensor(seg_features,dtype=torch.float32).to(device)
         weight_vector = torch.tensor([0.05,0.05,0.1,0.4,0.1,0.1,0.2],dtype=torch.float32).to(device)
         seg_dist=torch.sum(weight_vector*(seg_features-mem_shape)*(seg_features-mem_shape),1)
         seg_dist = torch.squeeze(seg_dist).detach().cpu()
-        #size_dist = torch.tanh(torch.div(torch.abs(mem_shape-img_shape),torch.min(mem_shape,img_shape))).detach().cpu()
+        
         ssim_val = ssim(memory_list, x_list[split:end_idx], data_range=1, size_average=False).detach().cpu() # return (N,)
         add_dist = np.asarray(ssim_val+seg_dist)
         solved_list = (add_dist < 1.0).nonzero()[0]
@@ -481,7 +464,6 @@ def memory_check_single_image_translation_n_rotation(memory_list,img,threshold,d
             mapping_res.append([str(mem_index),str(round(max_dist,3))])
             translated_res.append([str(mem_index),best_translation])
             rotated_res.append([str(mem_index),best_angle])
-            #print("each memory ",mem_index,max_dist,best_angle,best_translation)
         mem_index += 1
 
     result.append({"memory":mapping_res,"rotate_angle":rotated_res,"translated_res":translated_res})
@@ -514,11 +496,10 @@ def memory_check_single_image_translation_n_rotation_best_mem(memory_list,img,th
     translated_res = []
     rotated_res = []
     img_ = img.copy()
-    #im = cv2.normalize(im, None, 0, 255, cv2.NORM_MINMAX)
-    #im = transforms.ToTensor()(img)
+
     im = transforms.ToTensor()(img_)
     x_list = im.repeat([memory_list.shape[0],1,1,1]).to(device)
-    #print(x_list.shape)
+
     ssim_val = ssim(memory_list, x_list, data_range=1, size_average=False).detach().cpu()
     for i,j in enumerate(ssim_val):
         mapping_res.append([str(i+1),str(round(j.item(),3))])
@@ -533,12 +514,10 @@ def memory_check_single_image_translation_n_rotation_best_mem(memory_list,img,th
         selected_indices.append(best_mem_index)
 
     max_dist = 0
-    #print(memory_list.shape,translated_im.shape)
-    #ssim_val = ssim(memory_list, translated_im, data_range=1, size_average=False).detach().cpu()
 
     mapping_res=[]
 
-    #com_list = im.repeat([len(x_shift)*len(y_shift)*len(angles),1,1,1]).to(device)
+
     for memory_,best_mem_index in zip(selected_memories,selected_indices):
         memories=[]
         rotated_angles=[]
@@ -556,7 +535,6 @@ def memory_check_single_image_translation_n_rotation_best_mem(memory_list,img,th
         memories=torch.stack(memories,dim=0).to(device)
         im_ = transforms.ToTensor()(img_)
         translated_im = im_.repeat([memories.shape[0],1,1,1]).to(device)
-        #print(translated_im.shape,memories.shape)
         ssim_val = ssim(memories, translated_im, data_range=1, size_average=False).detach().cpu() # return (N,)
         best_index = torch.argmax(ssim_val).item()
         best_translation=translated_pair[best_index]

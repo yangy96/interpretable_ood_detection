@@ -1,8 +1,4 @@
-import sys
-import json
-import matplotlib.pyplot as plt
 import os
-import numpy as np
 import random
 import csv
 import time
@@ -149,7 +145,6 @@ def check_carla_heavy_rain_ood(exp_folder,memorization_object,initial_memory_thr
             nearest_memory, matched_set, prob_density, exp_time_ = memorization_object.find_match(img_path,initial_memory_threshold)
             
             exp_time.append(round((exp_time_)*1000,5))
-            #print(exp_time)
             if (len(window) >= window_size):
                 window.pop(0)
                 if (prob_density < prob_threshold):
@@ -196,8 +191,7 @@ def check_carla_heavy_rain_ood(exp_folder,memorization_object,initial_memory_thr
         results_stat["average_window_delay"] = round(frame_diff/total_detect,3)
     else: 
         results_stat["average_window_delay"] = 0
-    
-    results_stat["evaluate_time_list"] = evaluate_time_list
+
 
     total_time = 0
     length = 0

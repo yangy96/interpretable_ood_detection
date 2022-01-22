@@ -1,7 +1,5 @@
 import cv2
-import PIL
 import numpy as np
-import sys
 import math
 import json
 
@@ -19,8 +17,6 @@ def return_feature_vector(main_image_file, lesion_mask_file, details_file):
     L_img = np.zeros((image.shape[0], image.shape[1]))
     L_img[:, :] = image_lab[:, :, 0]
 
-    # Ask Elena if this step is required !
-    # L_img = np.square(L_img)
 
     lesion_mask = cv2.imread(lesion_mask_file, cv2.IMREAD_GRAYSCALE)
     Pmean, Pstd = compute_background_info(L_img, lesion_mask)
@@ -32,10 +28,7 @@ def return_feature_vector(main_image_file, lesion_mask_file, details_file):
     image_masked = np.ma.array(L_img, mask = lesion_masked.mask)
 
     if not (image_masked.all() is np.ma.masked) :
-        # print("Masked image = ", image_masked)
-        # print("Size - ", image_masked.count())
-
-        # seg_area = image_masked.count()
+    
         seg_area = details["shape"][0] * details["shape"][1]
         seg_mean = image_masked.mean()
         seg_min = image_masked.min()
@@ -65,10 +58,6 @@ def return_feature_vector(main_image_file, lesion_mask_file, details_file):
         return_features[6] = seg_std / 255.0
         return_features[7] = bg_mean / 255.0
         return_features[8] = seg_contrast / 255.0
-        # return_features[9] = seg_prop /1e3
-
-
-    # print("Feature computed - ", return_features)
 
     return return_features
 

@@ -15,14 +15,13 @@ def myFunc(e):
 
 def read_image(folder,img_folder):
     img_list = []
-    #print(folder)
-    #print(folder.split("/")[-1])
+
     for root, dirs, files in os.walk(img_folder):
         for file_ in files:
             if(file_.endswith(".png")):
                 img_list.append(os.path.join(root,file_))
     img_list.sort(key=myFunc)
-    #print(img_list)
+
     return img_list
 
 def read_crash(folder,exp_name):
@@ -44,7 +43,7 @@ def read_image_for_carla(img_folder):
     for item in os.listdir(img_folder):
         if item not in exp_list:
             exp_list.append(item)
-    #print(exp_list)
+
     return exp_list
 
 def check_carla_crash_ood(exp_folder,memorization_object,initial_memory_threshold, window_size,window_thres,prob_threshold):
@@ -64,7 +63,6 @@ def check_carla_crash_ood(exp_folder,memorization_object,initial_memory_threshol
     close_memory_for_ood={}
     
     for exp_name in tqdm(exp_list):
-        #print("Current experiments -- no ", exp_name,exp_folder)
         window = []
         exp_time = []
         episode = False
@@ -74,13 +72,12 @@ def check_carla_crash_ood(exp_folder,memorization_object,initial_memory_threshol
         img_list = read_image(exp_folder,"./"+exp_folder+"/"+str(exp_name))
         frame,collision=read_crash(exp_folder,exp_name)
         exp_crash_dict[exp_name] = {"frame":frame,"collision":collision}
-        #print("check collision ", frame,collision)
 
         if (collision):
             collision_total += 1
         for img_path in img_list:
             current_frame += 1
-            #print("img path ", img_path)
+
             nearest_memory, matched_set, prob_density, exp_time_ = memorization_object.find_match(img_path,initial_memory_threshold)
 
             exp_time.append(round((exp_time_)*1000,5))
@@ -101,17 +98,13 @@ def check_carla_crash_ood(exp_folder,memorization_object,initial_memory_threshol
                         correct_collision += 1
                         detect_pre_list[exp_name] = frame - current_frame
                         
-                        #print("Original crash at {} , detection frame: {} , with nearest memory {}".format(frame, current_frame, nearest_memory))
-                        #print("current image ",img_path)
                         early_alarm += frame - current_frame
                     if (collision and current_frame > frame):
                         late_collision += 1
                         detect_delay_list[exp_name] = current_frame - frame
-                        #close_memory_for_ood[img_path] = nearest_memory
 
                     if not collision:
-                        wrong_collision += 1
-                        #print("wrong detection")        
+                        wrong_collision += 1      
                     
             else:
                 memory_store.append([img_path,nearest_memory])
@@ -132,20 +125,6 @@ def check_carla_crash_ood(exp_folder,memorization_object,initial_memory_threshol
 
     results_stat = {}
     
-    #print("Current window size: ",window_size," window threshold: ",window_thres)
-    #print("Total crash: ",collision_total," crash predict: ",collision_predict)
-  
-    #if collision_predict > 0:
-    #    print("total collision rate: ",round((correct_collision+late_collision)/collision_predict,3)," corrrect collision rate: ",round(correct_collision/collision_predict,3))
-    #    print("miss coolision rate: ",round(miss_collision/collision_total,3), " wrong collision rate ",  round(wrong_collision/collision_predict,3) )
-    #else: 
-    #    print("total collision rate: ", 0.0 ," corrrect collision rate: ", 0)
-    #    print("miss coolision rate: ",round(miss_collision/collision_total,3), " wrong collision rate ",  0)
-    #print("False prediction rate",round(wrong_collision/collision_total,3))
-    #if correct_collision > 0:
-    #    print("average frame for detecting crash", early_alarm/correct_collision)
-    #results_stat["good_detection"] = 100*round(correct_collision/collision_predict,3)
-    #100*round(correct_collision/collision_total,3)
     if collision_predict > 0:
         results_stat["corrrect_collision_rate"] = 100*round(correct_collision/collision_total,3)
         results_stat["total_collision_rate"] = 100*round(correct_collision+late_collision/collision_predict,3)
@@ -161,11 +140,5 @@ def check_carla_crash_ood(exp_folder,memorization_object,initial_memory_threshol
         results_stat["late_collision_rate"] = 0.0
         results_stat["early_alarm"] = 0.0
 
-    #results_stat["evaluate_time_list"] = evaluate_time_list
-    #results_stat["detect_pre_list"] = detect_pre_list
-    #results_stat["detect_delay_list"] = close_memory_for_ood
-    
-    #print("Evaluation time log ",evaluate_time_list)
-    #print("alarm time ahead ", alarm_time_list)
     return results_stat
 

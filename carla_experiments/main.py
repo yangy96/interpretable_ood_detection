@@ -6,9 +6,8 @@
 
 import argparse
 from memories import form_memories
-import torch
 import json
-
+from util import plot_one_result
 
 
 
@@ -27,9 +26,10 @@ if __name__ == "__main__":
     parser.add_argument("--window_size", type = int, default = 5, help = "window size")
     parser.add_argument("--window_threshold", type = int, default = 5 , help = "window threshold")
     parser.add_argument("--task", default = "in" , help = "current task")
+    parser.add_argument("--plot_one_result", type = bool, default = False , help = "plot for one graph only")
+    parser.add_argument("--plot_full_abalation", type = bool, default = False , help = "plot for full abalation")
     
     args = parser.parse_args()
-    #print(args)
 
 
     if args.build_memories :
@@ -37,9 +37,17 @@ if __name__ == "__main__":
     
     if args.predict_carla :
         stats = form_memories.run_carla_prediction(args.memory_dir, args.test_carla_dir, args.initial_memory_threshold, args.detect_threshold, args.prob_threshold, args.window_size,args.window_threshold, args.task)
-        with open("./results/ood_result"+"_"+args.task+"_"+args.memory_dir.split("/")[-1]+"_"+str(args.window_size)+"_"+str(args.prob_threshold)+"_"+str(args.window_threshold)+".json", 'w') as outfile:
-            json.dump(stats, outfile)
-        outfile.close()
+        if (args.task == "heavy_rain"):
+            tag = args.test_carla_dir.split("/")[-1].split("_")[0]
+            with open("./results/ood_result"+"_"+tag+"_"+args.task+"_"+args.memory_dir.split("/")[-1]+"_"+str(args.window_size)+"_"+str(args.prob_threshold)+"_"+str(args.window_threshold)+".json", 'w') as outfile:
+                json.dump(stats, outfile)
+            outfile.close()
+        else:
+            with open("./results/ood_result"+"_"+args.task+"_"+args.memory_dir.split("/")[-1]+"_"+str(args.window_size)+"_"+str(args.prob_threshold)+"_"+str(args.window_threshold)+".json", 'w') as outfile:
+                json.dump(stats, outfile)
+            outfile.close()
     
-    #form_memories.dump_distances(args.memory_dir)
+    if args.plot_one_result :
+        plot_one_result(args.memory_dir,args.window_size,args.initial_memory_threshold,args.window_threshold,args.task)
+
 

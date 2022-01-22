@@ -30,14 +30,10 @@ def pre_process_carla(carla_path,device):
     # This repetition of the array twice to make it shape like an image
     # is required since otherwise the library complains.
 
-    #doubled_carla_scan = [raw_scan, raw_scan]
-    #numpy_array = np.asarray(doubled_carla_scan)
-    #print("carla_path ",carla_path)
     transform = transforms.ToTensor()
     carla_tensor = transform(Image.open(carla_path).convert('RGBA').resize((128,128)))
     carla_tensor = carla_tensor.to(device)
-    #print(carla_path,carla_tensor.shape)
-    #carla_tensor = torch.from_numpy(numpy_array)
+
 
     return carla_tensor
 
@@ -111,7 +107,6 @@ class carla_data:
             index += 1
 
         carla_collection = torch.stack(carla_collection_list, dim = 0)
-        #carla_collection = carla_collection.to(self.device)
         numpy_carla_distance_collection = self.compute_carla_distance_batched(carla_collection)
 
         for index in range(len(numpy_carla_distance_collection)):

@@ -4,67 +4,43 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
-parser = argparse.ArgumentParser()
-parser.add_argument("--read_file", default = "")
-
-args = parser.parse_args()
-print(args)
-
-window_size=[5,10]
-name = args.read_file.split("_")
-total_number = {"in":27}
-
-delay_list=[]
-false_positive=[]
-false_negative=[]
-
-index=[]
-prob_list={"0.2":[0.85,0.86,0.87,0.88,0.89,0.9,0.91,0.92,0.93,0.94,0.95],"0.25":[0.85,0.86,0.87,0.88,0.89,0.9,0.91,0.92,0.93,0.94,0.95], "0.3":[0.7,0.71,0.72,0.73,0.74,0.75,0.76,0.77,0.78,0.79,0.8],"0.35":[0.7,0.71,0.72,0.73,0.74,0.75,0.76,0.77,0.78,0.79,0.8]}
-prob_list={"0.2":[0.92],"0.3":[0.78]}
-file_list = ["bike_oods","out_foggy","out_night"]
-threshold_list={"bike_oods":20,"out_foggy":0,"out_night":10}
-
-for file in file_list:
-    for dist in["0.2","0.3"]:
-        detection_rate=[]
-        average_delay=[]
-        index=[]
-        for prob in prob_list[dist]:
-            index.append(prob)
-            for i in window_size:
-                in_file = "memory_generation_"+file+"_"+dist+"_"+str(i)+"_"+str(prob)+".json"
-                with open(os.path.join("",in_file)) as json_file:
-                    data = json.load(json_file)
-                    for p in data.keys():
-                        index.append(str(p)+"/"+str(i))
-                        #index = str(p)+"/"+str(i)
-                        
-                        print("detection rate ",data[p]["detection_rate"])
-                        detection_rate.append(data[p]["detection_rate"])
-                        print("detection frame list ",data[p]["detect_frame_list"])
-                        new_frame=[]
-                        for m in data[p]["detect_frame_list"]:
-                            if m > threshold_list[file]:
-                                new_frame.append(m-threshold_list[file])
-                            else:
-                                new_frame.append(0)
-                        print(file,new_frame)
-                        if(len(data[p]["detect_frame_list"])>0):
-                            print("average window delay ",sum(new_frame)/len(new_frame))
-                            average_delay.append(sum(new_frame)/len(new_frame))
-                        else:
-                            print("average window delay ")
-                            average_delay.append(None)
-                    json_file.close()
-            average_delay.append('')
-            detection_rate.append('')
-                    #index.append('')
-                    
+def plot_one_result(memory_dir,window_size,dist,window_threshold,task):
+    prob_list = [0.8,0.85,0.86,0.87,0.88,0.89,0.9,0.91,0.92,0.93,0.94,0.95,0.96,0.97,0.98,0.99,1.0,1.01,1.02,1.03,1.04,1.05]
+    fp_prediction = []
+    fn_prediction=[]
+    if task == "heavy_rain":
+        
+        for prob in prob_list:
+            in_file = "./ood_result"+"_"+memory_dir.split("/")[-1]+"_"+str(window_size)+"_"+str(prob)+"_"+str(window_threshold)+".json"
+            with open(os.path.join("results",in_file)) as json_file:
+                data = json.load(json_file)
+                fp_prediction.append(data["detection_rate"])
+            json_file.close()
+            with open(os.path.join("results",in_file)) as json_file:
+                data = json.load(json_file)
+                fn_prediction.append(1-data["detection_rate"])
+            json_file.close()
             
-                
-        print(len(detection_rate),len(average_delay),index)
 
-        store_data={"detection rate ":detection_rate,"average delay":average_delay}
-        df = pd.DataFrame(store_data, index=pd.Index(index))
-        print(df)
-        df.to_excel('carla_'+file+'_'+dist+'.xlsx')
+        plt.figure()
+
+        plt.xticks(fontsize=18,weight="bold")
+        plt.yticks(fontsize=18,weight="bold")
+        plt.plot(prob_list,fp_prediction, label='d:  '+str(dist)+' T/W: '+str(window_threshold)+'/'+str(window_size))
+        plt.legend(fontsize=12)
+        plt.ylabel("False Positive Rate",fontsize=18,weight="bold")
+        plt.xlabel("Probability Density Threshold",fontsize=18,weight="bold")
+        plt.savefig("./results/p_false_positive_heavy_rain(11.a).png",bbox_inches='tight')
+        plt.close() 
+
+        plt.figure()
+        plt.xticks(fontsize=18,weight="bold")
+        plt.yticks(fontsize=18,weight="bold")
+        plt.plot(prob_list,false_prediction, label='d:  '+str(dist)+' T/W: '+str(window_threshold)+'/'+str(window_size))
+        plt.legend(fontsize=12)
+        plt.ylabel("False Negative Rate",fontsize=18,weight="bold")
+        plt.xlabel("Probability Density Threshold",fontsize=18,weight="bold")
+        plt.savefig("./results/p_false_negative_heavy_rain(11.b).png",bbox_inches='tight')
+        plt.close() 
+                        
+            

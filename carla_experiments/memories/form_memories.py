@@ -1,7 +1,7 @@
 import os
 import numpy as np
 import time
-# sys.path.append("../memories/")
+
 from memories.memorization import memory, memorization
 from crash_prediction.predict_carla import check_carla_ood, check_carla_heavy_rain_ood
 from crash_prediction.predict_crash import compute_crash_prediction_accuracy

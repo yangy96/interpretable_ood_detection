@@ -1,7 +1,5 @@
 import json
-import argparse
 import os
-import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -41,8 +39,6 @@ def plot_one_result(memory_dir,window_size,dist,prob):
     plt.xticks(fontsize=18,weight="bold")
     plt.yticks(fontsize=18,weight="bold")
     plt.plot(keys,false_prediction, label="d: "+str(dist)+" "+"alpha "+str(prob))
-    plt.legend(fontsize=10)
-    #plt.title("false prediction rate versus threshold/window")
     plt.ylabel("False Prediction Rate",fontsize=18,weight="bold")
     plt.xlabel("Threshold/Window",fontsize=18,weight="bold")
     plt.savefig("./results/p_false_prediction_lidar_(10.b).png",bbox_inches='tight')
@@ -78,10 +74,10 @@ def plot_saved_ablation_result():
                         miss_prediction[dist][prob].append(data[p]["missed_predictions"])
 
                         if (len(data[p]["alarm time ahead"]) > 0):
-                            #alarm_time.append(round(sum(data[p]["alarm time ahead"])/len(data[p]["alarm time ahead"]),2))
+
                             print("average alarm ",sum(data[p]["alarm time ahead"])/len(data[p]["alarm time ahead"]))
                         else:
-                            #alarm_time.append(0.0)
+
                             print("average alarm N/A")            
                 json_file.close()
 
@@ -94,7 +90,6 @@ def plot_saved_ablation_result():
             plt.yticks(fontsize=18,weight="bold")
             plt.plot(keys,correct_prediction[dist][prob], label="d: "+str(dist)+" "+"alpha "+str(prob))
     plt.legend(fontsize=10)
-    #plt.title("correct prediction rate versus threshold/window")
     plt.ylabel("True Prediction Rate",fontsize=18,weight="bold")
     plt.xlabel("Threshold/Window",fontsize=18,weight="bold")
     plt.savefig("p_correct_prediction_lidar_full_abalation.png",bbox_inches='tight')
@@ -107,7 +102,6 @@ def plot_saved_ablation_result():
             plt.yticks(fontsize=18,weight="bold")
             plt.plot(keys,false_prediction[dist][prob], label="d: "+str(dist)+" "+"alpha "+str(prob))
     plt.legend(fontsize=10)
-    #plt.title("false prediction rate versus threshold/window")
     plt.ylabel("False Prediction Rate",fontsize=18,weight="bold")
     plt.xlabel("Threshold/Window",fontsize=18,weight="bold")
     plt.savefig("p_false_prediction_lidar_full_abalation.png",bbox_inches='tight')

@@ -2,7 +2,6 @@ import numpy as np
 from shutil import copyfile
 import json
 import matplotlib.pyplot as plt
-# sys.path.append("../memories/")
 from memories.memorization import memory, memorization
 from crash_prediction.predict_crash import compute_crash_prediction_accuracy
 import os
@@ -15,20 +14,18 @@ def build_memories(source_dir, dest_dir, init_distance):
         os.makedirs(dest_dir)
 
     memorization_object = memorization(source_dir, dest_dir)
-    # memorization_object.learn_memories(0.35)
     memorization_object.learn_memories_with_CLARANS(init_distance_threshold = init_distance)
 
-    # memorization_object.load_memories()
 
 
 def run_crash_prediction(memory_dir, source_dir, window_size, prob_threshold, window_threshold):
 
     memorization_object = memorization(None, memory_dir)
     memorization_object.load_memories(expand_radius = 0.1)
-    result_stat ={}
+
     dist = memory_dir.split("/")[-1].split("_")[-1]
     stats = compute_crash_prediction_accuracy(source_dir, memorization_object,window_size, window_threshold, prob_threshold)
-    #print("Stats computed - ", stats)
+
     f = open("./results/lidar_exp_results.txt", "a")
     print("(W: %s tau: %s alpha: %s dist: %s) " % (str(window_size),str(window_threshold),str(prob_threshold),str(dist)))
     f.write("(W: {} tau: {} alpha: {} dist: {} ) \n".format(str(window_size),str(window_threshold),str(prob_threshold),str(dist)))

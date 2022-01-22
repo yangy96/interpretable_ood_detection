@@ -8,6 +8,13 @@ please run `python3 main.py --predict_carla True --memory_dir ./memories/carla_m
 
 ### To reproduce the results in Table 1 (Heavy Rain Scenario)
 
+run 
+- `chmod 777 run_heavy_rain_experiments.sh`
+- `./run_heavy_rain_experiments.sh`
+
+It takes about ~40 minutes to finish the experiments <br>
+When the script finishes (after viewing **finish both experiments**), it will print out all the experimental results and you can also find the results in *./results/carla_oods_night_exp_results.txt* and *./results/carla_oods_foggy_exp_results.txt*
+
 ### To reproduce the results in Table 2 (Night and Foggy Scenario)
 
 run 
@@ -19,7 +26,20 @@ When the script finishes (after viewing **finish both experiments**), it will pr
 
 ### To reproduce Figure 11
 
+We find that it takes about 5 hours to reproduce Figure 11 (3 plots total), so we provide a script to generate one plot only (~an hour). <br>
 
+run 
+- `chmod 777 run_heavy_rain_experiments_plot.sh`
+- `./run_heavy_rain_experiments_plot.sh`
+
+When the script finishes (after viewing **"finish one graph in the figure"**), please find the plots in *./results/p_false_positive_heavy_rain(11.a).png & ./results/p_false_negative_heavy_rain(11.b).png*
+
+Additionally, we provided dumped result for whole set of experiments and to generate figure 6, <br>
+run 
+- `python3 main.py --plot_abalation_result True` <br>
+Note: I am currently running dumped results <br>
+
+When the script finishes (after viewing **"finish dump images**), please find the plots in *./saved_results/p_false_positive_heavy_rain(11.a).png* & *./saved_results/p_false_negative_heavy_rain(11.b).png*
 
 ## Section 6.2 Detect OOD-ness due to change in front obstacles
 

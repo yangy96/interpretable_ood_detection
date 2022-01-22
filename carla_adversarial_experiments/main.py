@@ -29,7 +29,6 @@ if __name__ == "__main__":
     parser.add_argument("--plot_full_abalation", type = bool, default = False , help = "plot for full abalation")
 
     args = parser.parse_args()
-    #print(args)
 
 
     if args.build_memories :
