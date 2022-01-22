@@ -1,11 +1,13 @@
 # Artifact Evaluation 
-artifact evaluation for *Interpretable Detection of Distribution Shifts in Learning Enabled Cyber-Physical Systems*
+Artifact evaluation for *Interpretable Detection of Distribution Shifts in Learning Enabled Cyber-Physical Systems*. 
+
+Please follow the steps below to reproduce the results.
 
 ## Step 1) Download the repo and required datasets
 
 1. `git clone https://github.com/yangy96/interpretable_ood_detection.git`
 
-2. `cd carla_experiments`
+2. `cd interpretable_ood_detection/carla_experiments`
 
 TO DO : put a download link here 
 
@@ -19,7 +21,9 @@ TO DO: put a download link here
 
 ## Step 2) Environment set up
 
-To set up environment and install dependancies to run our experiments: you can choose either Docker container or virtual environment 
+This step is for seting up the environment and installing the dependancies for running our experiments. 
+
+Please choose one of these: Docker or virtual environment 
 
 ### Docker
 1. install [Docker](https://docs.docker.com/get-docker/) on your machine 
@@ -31,7 +35,7 @@ run `exit` <br>
 
 ### Virtual Environment 
 1. Create a virtual environment: `python3 -m venv env`
-2. Acativate environment: `source env/bin/activate`
+2. Activate environment: `source env/bin/activate`
 3. To install all packages: `pip install -r requirements.txt`
 
 After finishing the experiments, to leave the virtual environment, if using venv, `deactivate`
@@ -40,13 +44,13 @@ After finishing the experiments, to leave the virtual environment, if using venv
 
 ### To run OOD experiments to detect change in carla simulation (section 6.1 & 6.2)
 run `cd carla_experiments` <br>
-more details could be found in *README.md* in the carla_experiments 
+Follow instructions in carla_experiments/*README.md*
 
 ### To run OOD experiments to detect perturbations by adversarial attack (section 6.3)
 run `cd carla_adversarial_experiments` <br>
-more details could be found in *README.md* in the carla_adversarial_experiments
+Follow instructions in carla_adversarial_experiments/*README.md*
 
 ### To run OOD experiments for lidar data (section 7.3)
-run `cd lidar_experiments` <br>
-more details could be found in *README.md* in the lidar_experiments
+run `cd ../lidar_experiments` <br>
+Follow instructions in lidar_experiments/*README.md*
 
