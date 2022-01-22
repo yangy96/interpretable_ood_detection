@@ -1,5 +1,10 @@
 # To reproduce OOD experiments for lidar data (section 7.3)
 
+## Firstly
+
+Create a result folder: 
+`mkdir results`
+
 ## To reproduce the results in Table 5
 
 - for generating results for 1 row of the table, ex. W (window_size) = 40, tau (window_threshold) = 15, alpha (prob_threshold) = 0.05, d (initial_memory_threshold) = 0.3 and LIDAR_memories_$d$ = LIDAR_memories_0.3: 

@@ -1,5 +1,11 @@
 # To reproduce OOD experiments detect change in carla simulation (section 6.1 & 6.2)
 
+
+## Firstly
+
+Create a result folder: 
+`mkdir results`
+
 ## To run carla ood experiments
 
 please run `python3 main.py --predict_carla True --memory_dir ./memories/carla_memories_10_0.2 --test_carla_dir ./oods_night --prob_threshold 0.92 --window_size 5 --window_threshold 5 --task oods_night`
