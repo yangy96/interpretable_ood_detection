@@ -33,7 +33,7 @@ When the script finishes (after viewing **"finish dump images**), please find th
 
 ## To generate memories from scratch (Optinal)
 
-The above experiments use the memories that we provided as used in the experiments for the paper (in *./memories/LIDAR_memories_0.2* & *LIDAR_memories_0.3*), if want to generate the memories and then run the above experiments, then please run the following commands before running the experiments for Table 5 and Figure 10 <br>
+The above experiments use the memories that we provided as used in the experiments for the paper (in *./memories/LIDAR_memories_0.2* & *LIDAR_memories_0.3*), if want to generate the memories and then run the aboove experiments, then please run the following commands before running the experiments for Table 5 and Figure 10 <br>
 
 - `chmod 777 run_lidar_memory_generation.sh`
 - `./run_lidar_memory_generation.sh`
