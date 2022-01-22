@@ -19,7 +19,7 @@ When the script finishes (i.e. after printing **"finish experiment 4/4"**), you 
 ## To reproduce Figure 10
 We find that it takes about 14 hours to reproduce Figure 10 (12 plots total and ? points in each plot), so we provide a script to generate one plot. <br>
 
-- for generating one plot for viewing influence of different window threshold, ex. alpha (prob_threshold) = 0.05, d (initial_memory_threshold) = 0.3, run following commands
+- for generating one plot for viewing influence of different window threshold with selected parameters, ex. alpha (prob_threshold) = 0.05, d (initial_memory_threshold) = 0.3, run following commands
 - `chmod 777 run_lidar_experiments_plot.sh`
 - `./run_lidar_experiments_plot.sh 0.05 0.3`
 
