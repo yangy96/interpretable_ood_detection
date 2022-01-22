@@ -5,19 +5,31 @@ Please follow the steps below to reproduce the results.
 
 ## Step 1) Download the repo and required datasets
 
+This step is for downloading the code and required datasets (download required for carla experiments only). 
+
 1. `git clone https://github.com/yangy96/interpretable_ood_detection.git`
 
-2. `cd interpretable_ood_detection/carla_experiments`
+2. `cd interpretable_ood_detection/`
 
-TO DO : put a download link here 
+3. `cd carla_experiments`
 
-3. `cd ../`
+Please download data under this link: https://drive.google.com/file/d/1I1Rm-EziREPiBDAQSraYt0j_VwCbqLZE/view?usp=sharing
 
-4. `cd carla_adversarial_experiments`
+(Note: the data used in this experiment is about 16GB)
 
-TO DO: put a download link here 
+4. `tar -xzvf carla_data.tar`
 
 5. `cd ../`
+
+6. `cd carla_adversarial_experiments`
+
+Please download data under this link: https://drive.google.com/file/d/17dKNOAQWOL3KGbv7oj0-rV8FIHcakPPU/view?usp=sharing
+ 
+(Note: the data used in this experiment is about 16GB)
+
+7. `tar -xzvf carla_adversarial.tar`
+
+8. `cd ../`
 
 ## Step 2) Environment set up
 
@@ -37,7 +49,6 @@ run `exit` <br>
 1. Create a virtual environment: `python3 -m venv env`
 2. Activate environment: `source env/bin/activate`
 3. Update pip tool: `pip3 install -U pip`
-                    `pip3 install -U setuptools`
 4. To install all packages: `pip install -r requirements.txt`
 
 After finishing the experiments, to leave the virtual environment, if using venv, `deactivate`
