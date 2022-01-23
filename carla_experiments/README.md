@@ -11,7 +11,7 @@
 - `./run_heavy_rain_experiments.sh`
 
 It takes about ~40 minutes to finish the experiments <br>
-When the script finishes (after viewing **finish both experiments**), it will print out all the experimental results and you can also find the results in *./results/carla_oods_night_exp_results.txt* and *./results/carla_oods_foggy_exp_results.txt*
+When the script finishes (after viewing **finish heavy rain experiment 4/4**), it will print out all the experimental results and you can also find the results in *./results/carla_oods_night_exp_results.txt* and *./results/carla_oods_foggy_exp_results.txt*
 
 ### To reproduce the results in Table 2 (Night and Foggy Scenario)
 
