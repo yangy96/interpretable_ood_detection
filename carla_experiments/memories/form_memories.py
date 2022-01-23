@@ -67,13 +67,11 @@ def run_carla_prediction(memory_dir, source_dir, initial_memory_threshold, detec
         print("(W: %s tau: %s alpha: %s dist: %s) " % (str(window_size),str(window_threshold),str(prob_threshold),str(initial_memory_threshold)))
         f.write("(W: {} tau: {} alpha: {} dist: {} ) ".format(str(window_size),str(window_threshold),str(prob_threshold),str(initial_memory_threshold)))
         if(len(stats["detect_frame_list"])>0):
-            print("FN: %d/%d Avg Delay: %f "%(stats["total_episode"]-stats["ood_episode"],stats["total_episode"],sum(stats["window_list"])/len(stats["detect_frame_list"])))
-            stats["average_window_delay"]=sum(stats["window_list"])/len(stats["detect_frame_list"])
-            f.write("FN: {}/{} Avg Delay: {} \n".format(str(stats["total_episode"]-stats["ood_episode"]),str(stats["total_episode"]),str(sum(stats["window_list"])/len(stats["detect_frame_list"])) ))
+            print("FN: %d/%d Avg Delay: %f "%(stats["total_episode"]-stats["ood_episode"],stats["total_episode"],stats["average_window_delay"]))
+            f.write("FN: {}/{} Avg Delay: {} \n".format(str(stats["total_episode"]-stats["ood_episode"]),str(stats["total_episode"]),str(stats["average_window_delay"]) ))
         else:
             print("FN: %d/%d Avg Delay: N/A "%(stats["total_episode"]-stats["ood_episode"],stats["total_episode"]))
             f.write("FN: {}/{} Avg Delay: N/A \n".format(str(stats["total_episode"]-stats["ood_episode"]),str(stats["total_episode"]) ))
-            stats["average_window_delay"]=None
         f.close()
     return stats
 

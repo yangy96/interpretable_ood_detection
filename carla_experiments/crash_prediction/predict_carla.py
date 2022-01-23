@@ -110,6 +110,10 @@ def check_carla_ood(exp_folder,memorization_object,initial_memory_threshold, win
         else:
             new_frame.append(0)
     results_stat["window_list"] = new_frame
+    if (len(results_stat["detect_frame_list"]) > 0):
+        results_stat["average_window_delay"] = round(sum(results_stat["window_list"])/len(results_stat["detect_frame_list"]),2)
+    else:
+        results_stat["average_window_delay"] = None
 
     return results_stat
 
