@@ -10,7 +10,7 @@
 - `chmod 777 run_heavy_rain_experiments.sh`
 - `./run_heavy_rain_experiments.sh`
 
-It takes about ~40 minutes to finish the experiments <br>
+It takes about ~30 minutes to finish the experiments <br>
 When the script finishes (after viewing **finish heavy rain experiment 4/4**), it will print out all the experimental results and you can also find the results in *./results/carla_oods_night_exp_results.txt* and *./results/carla_oods_foggy_exp_results.txt*
 
 ### To reproduce the results in Table 2 (Night and Foggy Scenario)
@@ -26,7 +26,7 @@ When the script finishes (after viewing **finish both experiments**), it will pr
 
 ### To reproduce Figure 11
 
-We find that it takes about 5 hours to reproduce Figure 11 (3 plots total and 21 points in each plot), so we provide a script to generate one plot only (~an hour). <br>
+We find that it takes about 6 hours to reproduce Figure 11 (3 plots total and 21 points in each plot), so we provide a script to generate one plot only (~2 hour). <br>
 - for generating one plot for viewing influence of different window threshold with selected parameters, ex. tau (window_threshold) = 5, W (window_size) = 10, run following commands
 run 
 - `chmod 777 run_heavy_rain_experiments_plot.sh`
