@@ -11,12 +11,13 @@ def plot_one_result(memory_dir,window_size,dist,window_threshold,task):
     if task == "heavy_rain":
         
         for prob in prob_list:
-            in_file = "./ood_result"+"_"+memory_dir.split("/")[-1]+"_"+str(window_size)+"_"+str(prob)+"_"+str(window_threshold)+".json"
+            in_file = "./ood_result"+"_in_"+task+"_"+memory_dir.split("/")[-1]+"_"+str(window_size)+"_"+str(prob)+"_"+str(window_threshold)+".json"
             with open(os.path.join("results",in_file)) as json_file:
                 data = json.load(json_file)
                 fp_prediction.append(data["detection_rate"])
             json_file.close()
-            with open(os.path.join("results",in_file)) as json_file:
+            out_file = "./ood_result"+"_out_"+task+"_"+memory_dir.split("/")[-1]+"_"+str(window_size)+"_"+str(prob)+"_"+str(window_threshold)+".json"
+            with open(os.path.join("results",out_file)) as json_file:
                 data = json.load(json_file)
                 fn_prediction.append(1-data["detection_rate"])
             json_file.close()

@@ -41,15 +41,6 @@ if __name__ == "__main__":
         if not os.path.exists('./results'):
             os.mkdir('./results')
         stats = form_memories.run_carla_prediction(args.memory_dir, args.test_carla_dir, args.initial_memory_threshold, args.detect_threshold, args.prob_threshold, args.window_size,args.window_threshold, args.task)
-        if (args.task == "heavy_rain"):
-            tag = args.test_carla_dir.split("/")[-1].split("_")[0]
-            with open("./results/ood_result"+"_"+tag+"_"+args.task+"_"+args.memory_dir.split("/")[-1]+"_"+str(args.window_size)+"_"+str(args.prob_threshold)+"_"+str(args.window_threshold)+".json", 'w') as outfile:
-                json.dump(stats, outfile)
-            outfile.close()
-        else:
-            with open("./results/ood_result"+"_"+args.task+"_"+args.memory_dir.split("/")[-1]+"_"+str(args.window_size)+"_"+str(args.prob_threshold)+"_"+str(args.window_threshold)+".json", 'w') as outfile:
-                json.dump(stats, outfile)
-            outfile.close()
     
     if args.plot_one_result :
         plot_one_result(args.memory_dir,args.window_size,args.initial_memory_threshold,args.window_threshold,args.task)

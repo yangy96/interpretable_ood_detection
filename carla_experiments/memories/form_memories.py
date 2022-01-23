@@ -1,6 +1,7 @@
 import os
 import numpy as np
 import time
+import json
 
 from memories.memorization import memory, memorization
 from crash_prediction.predict_carla import check_carla_ood, check_carla_heavy_rain_ood
@@ -47,6 +48,9 @@ def run_carla_prediction(memory_dir, source_dir, initial_memory_threshold, detec
         #run in distribution experiment
         in_source_dir = source_dir + os.sep + "in_test"
         stats = check_carla_heavy_rain_ood(in_source_dir, memorization_object, initial_memory_threshold, window_size,int(window_threshold),detect_threshold,prob_threshold)  
+        with open("./results/ood_result"+"_in_"+task+"_"+memory_dir.split("/")[-1]+"_"+str(window_size)+"_"+str(prob_threshold)+"_"+str(window_threshold)+".json", 'w') as outfile:
+                json.dump(stats, outfile)
+        outfile.close()
         print("FP: %d/%d" %(stats["ood_episode"],stats["total_episode"]))
         f.write("FP: {}/{}" .format(str(stats["ood_episode"]),str(stats["total_episode"])))
         #run out of distribution experiment
@@ -60,6 +64,9 @@ def run_carla_prediction(memory_dir, source_dir, initial_memory_threshold, detec
             f.write("FN: {}/{} Avg Delay: N/A \n Exec Time: N/A".format(str(stats["total_episode"]-stats["ood_episode"]),str(stats["total_episode"]) ))
             stats["average_window_delay"]=None
         f.close()
+        with open("./results/ood_result"+"_out_"+task+"_"+memory_dir.split("/")[-1]+"_"+str(window_size)+"_"+str(prob_threshold)+"_"+str(window_threshold)+".json", 'w') as outfile:
+                json.dump(stats, outfile)
+        outfile.close()
     else:
         stats = check_carla_ood(source_dir, memorization_object, initial_memory_threshold, window_size,int(window_threshold),detect_threshold,prob_threshold, task)
         print("**************************************************************")
@@ -73,6 +80,10 @@ def run_carla_prediction(memory_dir, source_dir, initial_memory_threshold, detec
             print("FN: %d/%d Avg Delay: N/A "%(stats["total_episode"]-stats["ood_episode"],stats["total_episode"]))
             f.write("FN: {}/{} Avg Delay: N/A \n".format(str(stats["total_episode"]-stats["ood_episode"]),str(stats["total_episode"]) ))
         f.close()
+        with open("./results/ood_result"+"_"+task+"_"+memory_dir.split("/")[-1]+"_"+str(window_size)+"_"+str(prob_threshold)+"_"+str(window_threshold)+".json", 'w') as outfile:
+            json.dump(stats, outfile)
+        outfile.close()
+            
     return stats
 
 def dump_distances(memory_dir):
