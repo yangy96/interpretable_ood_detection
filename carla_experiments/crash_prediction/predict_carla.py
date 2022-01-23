@@ -188,7 +188,7 @@ def check_carla_heavy_rain_ood(exp_folder,memorization_object,initial_memory_thr
     results_stat["detect_frame_list"] = detect_frame_list
     
     if total_detect > 0:
-        results_stat["average_window_delay"] = round(frame_diff/total_detect,3)
+        results_stat["average_window_delay"] = round(frame_diff/total_detect,2)
     else: 
         results_stat["average_window_delay"] = 0
 
