@@ -29,7 +29,7 @@ def plot_one_result(memory_dir,window_size,dist,window_threshold):
     plt.legend(fontsize=12)
     plt.ylabel("True Prediction Rate",fontsize=18,weight="bold")
     plt.xlabel("Probability Density Threshold",fontsize=18,weight="bold")
-    plt.savefig("./results/p_sticker_true_prediction_tau_"+window_threshold+"_T_"+window_size+"_d_"+dist+".png",bbox_inches='tight')
+    plt.savefig("./results/p_sticker_true_prediction_tau_"+str(window_threshold)+"_T_"+str(window_size)+"_d_"+str(dist)+".png",bbox_inches='tight')
     plt.close() 
 
     plt.figure()
@@ -39,5 +39,5 @@ def plot_one_result(memory_dir,window_size,dist,window_threshold):
     plt.legend(fontsize=12)
     plt.ylabel("False Prediction Rate",fontsize=18,weight="bold")
     plt.xlabel("Probability Density Threshold",fontsize=18,weight="bold")
-    plt.savefig("./results/p_sticker_false_prediction_tau_"+window_threshold+"_T_"+window_size+"_d_"+dist+".png",bbox_inches='tight')
+    plt.savefig("./results/p_sticker_false_prediction_tau_"+str(window_threshold)+"_T_"+str(window_size)+"_d_"+str(dist)+".png",bbox_inches='tight')
     plt.close() 
