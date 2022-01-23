@@ -3,9 +3,6 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 
-plt.xticks(fontsize=20)
-
-
 def plot_one_result(memory_dir,window_size,dist,prob):
     window_thre_list = range(5,window_size,2)
     correct_prediction=[]
@@ -28,10 +25,9 @@ def plot_one_result(memory_dir,window_size,dist,prob):
     plt.yticks(fontsize=18,weight="bold")
     plt.plot(keys,correct_prediction, label="d: "+str(dist)+" "+"alpha "+str(prob))
     plt.legend(fontsize=10)
-    #plt.title("correct prediction rate versus threshold/window")
     plt.ylabel("True Prediction Rate",fontsize=18,weight="bold")
     plt.xlabel("Threshold/Window",fontsize=18,weight="bold")
-    plt.savefig("./results/p_correct_prediction_lidar_(10.a).png",bbox_inches='tight')
+    plt.savefig("./results/p_lidar_true_prediction_alpha_"+prob+"_d_"+dist+".png",bbox_inches='tight')
     plt.close() 
     plt.figure()
 
@@ -41,68 +37,5 @@ def plot_one_result(memory_dir,window_size,dist,prob):
     plt.plot(keys,false_prediction, label="d: "+str(dist)+" "+"alpha "+str(prob))
     plt.ylabel("False Prediction Rate",fontsize=18,weight="bold")
     plt.xlabel("Threshold/Window",fontsize=18,weight="bold")
-    plt.savefig("./results/p_false_prediction_lidar_(10.b).png",bbox_inches='tight')
-    plt.close() 
-
-def plot_saved_ablation_result():
-    window_list = [40]
-    prob_list = [0.05,0.1,0.15,0.2,0.25,0.3]
-    dist_list = [0.2,0.3]
-
-    correct_prediction={dist:{prob: [] for prob in prob_list} for dist in dist_list}
-    false_prediction={dist:{prob: [] for prob in prob_list} for dist in dist_list}
-    miss_prediction={dist:{prob: [] for prob in prob_list} for dist in dist_list}
-    alarm_time ={dist:{prob: [] for prob in prob_list} for dist in dist_list}
-    index=[]
-    keys = []
-    for dist in dist_list:
-        for prob in prob_list:
-            for i in window_list:
-                keys=[]
-                file_name = "memory_generation_LIDAR_memories_"+str(dist)+"_"+str(i)+"_"+str(prob)+"_"+str()+".json"
-                with open(os.path.join("final_output",file_name)) as json_file:
-                    data = json.load(json_file)
-                    for p in data.keys():
-                        keys.append(str(p))
-                        print("***********************************")
-                        print("current key ",p)
-                        print("correct prediction percent ",data[p]["correct_prediction_percent"])
-                        print("false predictions ",data[p]["false_predictions"])
-                        print("missed predictions ",data[p]["missed_predictions"])
-                        correct_prediction[dist][prob].append(data[p]["correct_prediction_percent"])
-                        false_prediction[dist][prob].append(data[p]["false_predictions"])
-                        miss_prediction[dist][prob].append(data[p]["missed_predictions"])
-
-                        if (len(data[p]["alarm time ahead"]) > 0):
-
-                            print("average alarm ",sum(data[p]["alarm time ahead"])/len(data[p]["alarm time ahead"]))
-                        else:
-
-                            print("average alarm N/A")            
-                json_file.close()
-
-    fig = plt.figure()
-    ax = fig.add_subplot(1,1,1) 
-    for dist in [0.2, 0.3]:
-        for prob in prob_list:
-            plt.xticks(np.arange(0, 41, 4.0))
-            plt.xticks(fontsize=18,weight="bold")
-            plt.yticks(fontsize=18,weight="bold")
-            plt.plot(keys,correct_prediction[dist][prob], label="d: "+str(dist)+" "+"alpha "+str(prob))
-    plt.legend(fontsize=10)
-    plt.ylabel("True Prediction Rate",fontsize=18,weight="bold")
-    plt.xlabel("Threshold/Window",fontsize=18,weight="bold")
-    plt.savefig("p_correct_prediction_lidar_full_abalation.png",bbox_inches='tight')
-    plt.close() 
-    plt.figure()
-    for dist in [0.2, 0.3]:
-        for prob in prob_list:
-            plt.xticks(np.arange(0, 41, 4.0))
-            plt.xticks(fontsize=18,weight="bold")
-            plt.yticks(fontsize=18,weight="bold")
-            plt.plot(keys,false_prediction[dist][prob], label="d: "+str(dist)+" "+"alpha "+str(prob))
-    plt.legend(fontsize=10)
-    plt.ylabel("False Prediction Rate",fontsize=18,weight="bold")
-    plt.xlabel("Threshold/Window",fontsize=18,weight="bold")
-    plt.savefig("p_false_prediction_lidar_full_abalation.png",bbox_inches='tight')
+    plt.savefig("./results/p_lidar_false_prediction_alpha_"+prob+"_d_"+dist+".png",bbox_inches='tight')
     plt.close() 

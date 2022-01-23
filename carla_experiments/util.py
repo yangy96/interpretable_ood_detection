@@ -21,7 +21,6 @@ def plot_one_result(memory_dir,window_size,dist,window_threshold,task):
                 fn_prediction.append(1-data["detection_rate"])
             json_file.close()
             
-
         plt.figure()
 
         plt.xticks(fontsize=18,weight="bold")
@@ -30,17 +29,17 @@ def plot_one_result(memory_dir,window_size,dist,window_threshold,task):
         plt.legend(fontsize=12)
         plt.ylabel("False Positive Rate",fontsize=18,weight="bold")
         plt.xlabel("Probability Density Threshold",fontsize=18,weight="bold")
-        plt.savefig("./results/p_false_positive_heavy_rain(11.a).png",bbox_inches='tight')
+        plt.savefig("./results/p_false_positive_heavy_rain_tau_"+window_threshold+"_T_"+window_size+".png",bbox_inches='tight')
         plt.close() 
 
         plt.figure()
         plt.xticks(fontsize=18,weight="bold")
         plt.yticks(fontsize=18,weight="bold")
-        plt.plot(prob_list,false_prediction, label='d:  '+str(dist)+' T/W: '+str(window_threshold)+'/'+str(window_size))
+        plt.plot(prob_list,fn_prediction, label='d:  '+str(dist)+' T/W: '+str(window_threshold)+'/'+str(window_size))
         plt.legend(fontsize=12)
         plt.ylabel("False Negative Rate",fontsize=18,weight="bold")
         plt.xlabel("Probability Density Threshold",fontsize=18,weight="bold")
-        plt.savefig("./results/p_false_negative_heavy_rain(11.b).png",bbox_inches='tight')
+        plt.savefig("./results/p_false_negative_heavy_rain_tau_"+window_threshold+"_T_"+window_size+".png",bbox_inches='tight')
         plt.close() 
                         
             

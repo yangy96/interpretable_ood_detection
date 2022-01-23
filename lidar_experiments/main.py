@@ -6,7 +6,7 @@
 
 import argparse
 from memories import form_memories
-from util import plot_one_result, plot_saved_ablation_result
+from util import plot_one_result
 import json
 import warnings
 warnings.filterwarnings("ignore")

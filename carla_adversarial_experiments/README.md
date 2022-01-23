@@ -27,13 +27,6 @@ run
 
 When the script finishes (after viewing **"finish one graph in the figure"**), please find the plots in *./results/p_correct_prediction_carla_sticker(6.a).png & ./results/p_false_prediction_carla_sticker(6.b).png*
 
-Additionally, we provided dumped result for whole set of experiments and to generate figure 6, <br>
-run 
-- `python3 main.py --plot_abalation_result True` <br>
-Note: I am currently running dumped results <br>
-
-When the script finishes (after viewing **"finish dump images**), please find the plots in *./saved_results/p_correct_prediction_carla_sticker(6.a).png* & *./saved_results/p_correct_prediction_carla_sticker(6.b).png*
-
 ## To generate memories
 
 We already provide the memories we used in experiments (in *./memories/carla_adv_memories_10_0.5* & *./memories/carla_adv_memories_10_0.6* ), if want to generate the memories, <br>

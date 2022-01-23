@@ -40,12 +40,6 @@ run
 
 When the script finishes (after viewing **"finish one graph in the figure"**), please find the plots in *./results/p_false_positive_heavy_rain(11.a).png & ./results/p_false_negative_heavy_rain(11.b).png*
 
-Additionally, we provided dumped result for whole set of experiments and to generate figure 6, <br>
-run 
-- `python3 main.py --plot_abalation_result True` <br>
-Note: I am currently running dumped results <br>
-
-When the script finishes (after viewing **"finish dump images**), please find the plots in *./saved_results/p_false_positive_heavy_rain(11.a).png* & *./saved_results/p_false_negative_heavy_rain(11.b).png*
 
 ## Section 6.2 Detect OOD-ness due to change in front obstacles
 

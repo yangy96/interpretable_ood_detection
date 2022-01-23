@@ -25,12 +25,6 @@ We find that it takes about 14 hours to reproduce Figure 10 (12 plots total and 
 
 When the script finishes (after viewing **"finish one graph in the figure"**), please find the plots in *./results/p_correct_prediction_lidar_(10.a).png & ./results/results/p_false_prediction_lidar_(10.b).png*
 
-Additionally, we provided dumped result for whole set of experiments and to generate figure 10, <br>
-run 
-- `python3 main.py --plot_abalation_result True` <br>
-Note: I am currently running dumped results <br>
-
-When the script finishes (after viewing **"finish dump images**), please find the plots in *./results/lidar_exp_results.txt*
 
 ## To generate memories from scratch (Optional)
 
