@@ -8,6 +8,7 @@ import argparse
 from memories import form_memories
 from util import plot_one_result
 import json
+import os
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -35,6 +36,8 @@ if __name__ == "__main__":
         form_memories.build_memories(args.memory_source, args.memory_dir, args.initial_memory_threshold)
 
     if args.predict_crash :
+        if not os.path.exists('./results'):
+            os.mkdir('./results')
         stats = form_memories.run_crash_prediction(args.memory_dir, args.real_data_dir,args.window_size,args.prob_threshold,args.window_threshold)
         with open("./results/ood_result"+"_"+args.memory_dir.split("/")[-1]+"_"+str(args.window_size)+"_"+str(args.prob_threshold)+"_"+str(args.window_threshold)+".json", 'w') as outfile:
             json.dump(stats, outfile)

@@ -27,7 +27,7 @@ Please download data under this link: https://drive.google.com/file/d/17dKNOAQWO
  
 (Note: the data used in this experiment is about 16GB)
 
-7. `tar -xzvf carla_adversarial.tar`
+7. `tar -xvf carla_adversarial.tar`
 
 8. `cd ../`
 

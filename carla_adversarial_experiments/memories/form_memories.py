@@ -48,9 +48,9 @@ def run_carla_prediction(memory_dir, source_dir, initial_memory_threshold,prob_t
     memorization_object = memorization(None, memory_dir)
     memorization_object.load_memories(expand_radius = 0.05)
 
-    stats = check_carla_crash_ood(source_dir, memorization_object, initial_memory_threshold, window_size,win_thre,prob_threshold)
     print("**************************************************************")
     print("(W: %s tau: %s alpha: %s dist: %s) " % (str(window_size),str(win_thre),str(prob_threshold),str(initial_memory_threshold)))
+    stats = check_carla_crash_ood(source_dir, memorization_object, initial_memory_threshold, window_size,win_thre,prob_threshold)
     print("TPR: %f FPR: %f MPR: %f Avg Forecast: %f" % (stats["corrrect_collision_rate"],stats["wrong_collision_rate"],stats["miss_collision_rate"],stats["early_alarm"]))
     f = open("./results/carla_sticker_exp_results.txt", "a")
     f.write("(W: {} tau: {} alpha: {} dist: {} ) ".format(str(window_size),str(win_thre),str(prob_threshold),str(initial_memory_threshold)))

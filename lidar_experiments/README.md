@@ -1,10 +1,5 @@
 # To reproduce OOD experiments for lidar data (section 7.3)
 
-## Firstly
-
-Create a result folder: 
-`mkdir results`
-
 ## To reproduce the results in Table 5
 
 - for generating results for 1 row of the table, ex. W (window_size) = 40, tau (window_threshold) = 15, alpha (prob_threshold) = 0.05, d (initial_memory_threshold) = 0.3 and LIDAR_memories_$d$ = LIDAR_memories_0.3: 
@@ -17,13 +12,13 @@ It takes about 20 minutes for generating results of the entire Table 5, i.e. run
 When the script finishes (i.e. after printing **"finish experiment 4/4"**), you will see all the experimental results printed on console. You can also find the results in *./results/lidar_exp_results.txt*
 
 ## To reproduce Figure 10
-We find that it takes about 14 hours to reproduce Figure 10 (12 plots total and ? points in each plot), so we provide a script to generate one plot. <br>
+We find that it takes about 14 hours to reproduce Figure 10 (12 plots total and 18 points in each plot), so we provide a script to generate one plot. <br>
 
 - for generating one plot for viewing influence of different window threshold with selected parameters, ex. alpha (prob_threshold) = 0.05, d (initial_memory_threshold) = 0.3, run following commands
 - `chmod 777 run_lidar_experiments_plot.sh`
 - `./run_lidar_experiments_plot.sh 0.05 0.3`
 
-When the script finishes (after viewing **"finish one graph in the figure"**), please find the plots in *./results/p_correct_prediction_lidar_(10.a).png & ./results/results/p_false_prediction_lidar_(10.b).png*
+When the script finishes (after viewing **"finish one graph in the figure"**), please find the plots in *./results/p_lidar_true_prediction_alpha_$prob_d_$dist.png* & *./results/results/p_lidar_false_prediction_alpha_$prob_d_$dist.png*
 
 
 ## To generate memories from scratch (Optional)

@@ -29,7 +29,7 @@ def plot_one_result(memory_dir,window_size,dist,window_threshold,task):
         plt.legend(fontsize=12)
         plt.ylabel("False Positive Rate",fontsize=18,weight="bold")
         plt.xlabel("Probability Density Threshold",fontsize=18,weight="bold")
-        plt.savefig("./results/p_false_positive_heavy_rain_tau_"+window_threshold+"_T_"+window_size+".png",bbox_inches='tight')
+        plt.savefig("./results/p_heavy_rain_false_positive_tau_"+window_threshold+"_T_"+window_size+"_d_"+dist+".png",bbox_inches='tight')
         plt.close() 
 
         plt.figure()
@@ -39,7 +39,7 @@ def plot_one_result(memory_dir,window_size,dist,window_threshold,task):
         plt.legend(fontsize=12)
         plt.ylabel("False Negative Rate",fontsize=18,weight="bold")
         plt.xlabel("Probability Density Threshold",fontsize=18,weight="bold")
-        plt.savefig("./results/p_false_negative_heavy_rain_tau_"+window_threshold+"_T_"+window_size+".png",bbox_inches='tight')
+        plt.savefig("./results/p_heavy_rain_false_negative_tau_"+window_threshold+"_T_"+window_size+"_d_"+dist+".png",bbox_inches='tight')
         plt.close() 
                         
             

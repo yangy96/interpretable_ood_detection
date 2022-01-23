@@ -8,7 +8,9 @@ import argparse
 from memories import form_memories
 import json
 from util import plot_one_result
-
+import os
+import warnings
+warnings.filterwarnings("ignore")
 
 
 
@@ -36,6 +38,8 @@ if __name__ == "__main__":
         form_memories.build_memories_carla(args.memory_source, args.memory_dir, args.initial_memory_threshold)
     
     if args.predict_carla :
+        if not os.path.exists('./results'):
+            os.mkdir('./results')
         stats = form_memories.run_carla_prediction(args.memory_dir, args.test_carla_dir, args.initial_memory_threshold, args.detect_threshold, args.prob_threshold, args.window_size,args.window_threshold, args.task)
         if (args.task == "heavy_rain"):
             tag = args.test_carla_dir.split("/")[-1].split("_")[0]

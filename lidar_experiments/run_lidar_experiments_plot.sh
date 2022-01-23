@@ -3,7 +3,7 @@ echo "Warning: running this script takes about an hour"
 prob=$1
 dist=$2
 
-echo $dist
+echo "probability threshold: $1, distance: $2"
 
 for window_threshold in 5 7 9 11 13 15 17 19 21 23 25 27 29 31 33 35 37 39 
 do 
