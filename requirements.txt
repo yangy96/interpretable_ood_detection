@@ -7,3 +7,4 @@ scipy==1.4.1
 opencv-python
 pandas
 Pillow
+gdown
