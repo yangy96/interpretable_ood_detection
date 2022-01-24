@@ -7,11 +7,11 @@ Please follow the steps below to reproduce the results.
 
 `git clone https://github.com/yangy96/interpretable_ood_detection.git`
 
-## Step 1) Environment set up
+## Step 2) Environment set up
 
 This step is for seting up the environment and installing the dependancies for running our experiments. 
 
-Please choose one of these: virtual environment (Preferred) or docker
+Please choose one of these: virtual environment (preferred) or docker
 
 ### Virtual Environment (Preferred)
 1. Create a virtual environment: `python3 -m venv env`
@@ -29,7 +29,7 @@ After finishing the experiments, to leave the virtual environment, if using venv
 After finishing the experiments, to leave the docker environment, 
 run `exit` <br>
 
-## Step 2) To reproduce our OOD experiments 
+## Step 3) To reproduce our OOD experiments 
 
 ### To run OOD experiments to detect change in carla simulation (section 6.1 & 6.2)
 1. `cd interpretable_ood_detection/cd carla_experiments`
