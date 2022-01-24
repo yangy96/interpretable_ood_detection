@@ -35,23 +35,23 @@ Please download data under this link: https://drive.google.com/file/d/17dKNOAQWO
 
 This step is for seting up the environment and installing the dependancies for running our experiments. 
 
-Please choose one of these: Docker or virtual environment 
+Please choose one of these: virtual environment (Preferred) or docker
 
-### Docker
-1. install [Docker](https://docs.docker.com/get-docker/) on your machine 
-2. To build a docker image: `docker build -t reproduce-test .` <br>
-3. To run the docker container and open an interactive session with docker: `docker run -i -t --gpus all --name temp_test --rm reproduce-test /bin/bash`
-
-After finishing the experiments, to leave the virtual environment, 
-run `exit` <br>
-
-### Virtual Environment 
+### Virtual Environment (Preferred)
 1. Create a virtual environment: `python3 -m venv env`
 2. Activate environment: `source env/bin/activate`
 3. Update pip tool: `pip3 install -U pip`
 4. To install all packages: `pip install -r requirements.txt`
 
 After finishing the experiments, to leave the virtual environment, if using venv, `deactivate`
+
+### Docker
+1. install [Docker](https://docs.docker.com/get-docker/) on your machine 
+2. To build a docker image: `docker build -t reproduce-test .` <br>
+3. To run the docker container and open an interactive session with docker: `docker run -i -t --gpus all --name temp_test --rm reproduce-test /bin/bash`
+
+After finishing the experiments, to leave the docker environment, 
+run `exit` <br>
 
 ## Step 3) To reproduce our OOD experiments 
 
