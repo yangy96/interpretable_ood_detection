@@ -3,11 +3,11 @@ Artifact evaluation for *Interpretable Detection of Distribution Shifts in Learn
 
 Please follow the steps below to reproduce the results.
 
-## Step 1) Download the repo
+## Step 1) Download the repository
 
 `git clone https://github.com/yangy96/interpretable_ood_detection.git`
 
-## Step 2) Environment set up
+## Step 2) Set up the environment
 
 This step is for seting up the environment and installing the dependancies for running our experiments. 
 
