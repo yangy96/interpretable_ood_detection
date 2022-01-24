@@ -34,7 +34,7 @@ run `exit` <br>
 ### To run OOD experiments to detect change in carla simulation (section 6.1 & 6.2)
 1. `cd interpretable_ood_detection/cd carla_experiments`
 
-2. Download CARLA data under this link: https://drive.google.com/file/d/1I1Rm-EziREPiBDAQSraYt0j_VwCbqLZE/view?usp=sharing by running 'wget -O carla_data.tar https://drive.google.com/file/d/1I1Rm-EziREPiBDAQSraYt0j_VwCbqLZE/view?usp=sharing'
+2. Download CARLA data under this link: https://drive.google.com/file/d/1I1Rm-EziREPiBDAQSraYt0j_VwCbqLZE/view?usp=sharing by running `wget -O carla_data.tar https://drive.google.com/file/d/1I1Rm-EziREPiBDAQSraYt0j_VwCbqLZE/view?usp=sharing`
 
 (Note: the data used in this experiment is about 16GB)
 
@@ -45,7 +45,7 @@ run `exit` <br>
 ### To run OOD experiments to detect perturbations by adversarial attack (section 6.3)
 1. `cd interpretable_ood_detection/cd carla_adversarial_experiments`
 
-2. Download  CARLA ADVERSARIAL data under this link: https://drive.google.com/file/d/17dKNOAQWOL3KGbv7oj0-rV8FIHcakPPU/view?usp=sharing by running - 'wget -O  carla_adversarial.tar https://drive.google.com/file/d/1I1Rm-EziREPiBDAQSraYt0j_VwCbqLZE/view?usp=sharing'
+2. Download  CARLA ADVERSARIAL data under this link: https://drive.google.com/file/d/17dKNOAQWOL3KGbv7oj0-rV8FIHcakPPU/view?usp=sharing by running - `wget -O  carla_adversarial.tar https://drive.google.com/file/d/1I1Rm-EziREPiBDAQSraYt0j_VwCbqLZE/view?usp=sharing`
  
 (Note: the data used in this experiment is about 16GB)
 
