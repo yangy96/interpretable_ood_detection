@@ -9,11 +9,9 @@ This step is for downloading the code and required datasets (download required f
 
 1. `git clone https://github.com/yangy96/interpretable_ood_detection.git`
 
-2. `cd interpretable_ood_detection`
+2. `cd interpretable_ood_detection/cd carla_experiments`
 
-3. `cd carla_experiments`
-
-Please download data under this link: https://drive.google.com/file/d/1I1Rm-EziREPiBDAQSraYt0j_VwCbqLZE/view?usp=sharing
+3. Download data under this link: https://drive.google.com/file/d/1I1Rm-EziREPiBDAQSraYt0j_VwCbqLZE/view?usp=sharing - wget -O carla_data.tar https://drive.google.com/file/d/1I1Rm-EziREPiBDAQSraYt0j_VwCbqLZE/view?usp=sharing
 
 (Note: the data used in this experiment is about 16GB)
 
@@ -23,7 +21,7 @@ Please download data under this link: https://drive.google.com/file/d/1I1Rm-EziR
 
 6. `cd carla_adversarial_experiments`
 
-Please download data under this link: https://drive.google.com/file/d/17dKNOAQWOL3KGbv7oj0-rV8FIHcakPPU/view?usp=sharing
+Please download data under this link: https://drive.google.com/file/d/17dKNOAQWOL3KGbv7oj0-rV8FIHcakPPU/view?usp=sharing - wget -O  carla_adversarial.tar https://drive.google.com/file/d/1I1Rm-EziREPiBDAQSraYt0j_VwCbqLZE/view?usp=sharing
  
 (Note: the data used in this experiment is about 16GB)
 
