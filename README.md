@@ -29,12 +29,12 @@ After finishing the experiments, to leave the virtual environment, if using venv
 After finishing the experiments, to leave the docker environment, 
 run `exit` <br>
 
-## Step 3) To reproduce our OOD experiments 
+## Step 3) For reproducing our OOD experiments, please download the data 
 
 ### To run OOD experiments to detect change in carla simulation (section 6.1 & 6.2)
 1. `cd interpretable_ood_detection/carla_experiments`
 
-2. Download CARLA data under this link: https://drive.google.com/file/d/1I1Rm-EziREPiBDAQSraYt0j_VwCbqLZE/view?usp=sharing by running `wget -O carla_data.tar https://drive.google.com/file/d/1I1Rm-EziREPiBDAQSraYt0j_VwCbqLZE/view?usp=sharing`
+2. Download CARLA data under this link: https://drive.google.com/file/d/1I1Rm-EziREPiBDAQSraYt0j_VwCbqLZE/view?usp=sharing and put it in interpretable_ood_detection/carla_experiments folder.
 
 (Note: the data used in this experiment is about 16GB)
 
@@ -45,7 +45,7 @@ run `exit` <br>
 ### To run OOD experiments to detect perturbations by adversarial attack (section 6.3)
 1. `cd interpretable_ood_detection/carla_adversarial_experiments`
 
-2. Download  CARLA ADVERSARIAL data under this link: https://drive.google.com/file/d/17dKNOAQWOL3KGbv7oj0-rV8FIHcakPPU/view?usp=sharing by running - `wget -O  carla_adversarial.tar https://drive.google.com/file/d/17dKNOAQWOL3KGbv7oj0-rV8FIHcakPPU/view?usp=sharing`
+2. Download  CARLA ADVERSARIAL data under this link: https://drive.google.com/file/d/17dKNOAQWOL3KGbv7oj0-rV8FIHcakPPU/view?usp=sharing and put it in interpretable_ood_detection/carla_adversarial_experiments folder.
  
 (Note: the data used in this experiment is about 16GB)
 
