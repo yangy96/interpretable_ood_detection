@@ -17,7 +17,7 @@ Please choose one of these: virtual environment (preferred) or docker
 1. Create a virtual environment: `python3 -m venv env`
 2. Activate environment: `source env/bin/activate`
 3. Update pip tool: `pip3 install -U pip`
-4. To install all packages: `pip install -r requirements.txt`
+4. To install all packages: `pip install -r interpretable_ood_detection/requirements.txt`
 
 After finishing the experiments, to leave the virtual environment, if using venv, `deactivate`
 
@@ -54,6 +54,6 @@ run `exit` <br>
 4. Follow instructions in carla_adversarial_experiments/*README.md*
 
 ### To run OOD experiments for lidar data (section 7.3)
-run `cd lidar_experiments` <br>
+run `cd interpretable_ood_detection/lidar_experiments` <br>
 Follow instructions in lidar_experiments/*README.md*
 
