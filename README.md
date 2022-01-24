@@ -29,7 +29,7 @@ After finishing the experiments, to leave the virtual environment, if using venv
 After finishing the experiments, to leave the docker environment, 
 run `exit` <br>
 
-## Step 3) For reproducing our OOD experiments, please download the data and run the following commands
+## Step 3) Download the data and reproduce the results
 
 ### To run OOD experiments to detect change in carla simulation (section 6.1 & 6.2)
 1. Download CARLA data under this link: https://drive.google.com/file/d/1I1Rm-EziREPiBDAQSraYt0j_VwCbqLZE/view?usp=sharing and put it in interpretable_ood_detection/carla_experiments folder.
