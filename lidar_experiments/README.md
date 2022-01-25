@@ -18,7 +18,7 @@ We find that it takes about 14 hours to reproduce Figure 10 (12 plots total and 
 - `chmod 777 run_lidar_experiments_plot.sh`
 - `./run_lidar_experiments_plot.sh 0.05 0.3`
 
-When the script finishes (after viewing **"finish one graph in the figure"**), please find the plots in *./results/p_lidar_true_prediction_alpha_$prob_threshold$_d_$d$.png & ./results/results/p_lidar_false_prediction_alpha_$prob_threshold$_d_$d$.png*
+When the script finishes (after viewing **"finish one graph in the figure"**), please find the plots in *./results/p_lidar_true_prediction_alpha_$prob_threshold$_d_$d$.png & ./results/p_lidar_false_prediction_alpha_$prob_threshold$_d_$d$.png*
 
 
 ## To generate memories from scratch (Optional)
