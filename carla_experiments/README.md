@@ -24,17 +24,6 @@ When the script finishes (after viewing **finish heavy rain experiment 4/4**), i
 It takes about ~5 minutes to finish the experiments <br>
 When the script finishes (after viewing **finish both experiments**), it will print out all the experimental results and you can also find the results in *./results/carla_oods_night_exp_results.txt* and *./results/carla_oods_foggy_exp_results.txt*
 
-### To reproduce Figure 11
-
-We find that it takes about 6 hours to reproduce Figure 11 (3 plots total and 21 points in each plot), so we provide a script to generate one plot only (~2 hour). <br>
-- for generating one plot for viewing influence of different window threshold with selected parameters, ex. tau (window_threshold) = 5, W (window_size) = 10, run following commands
-run 
-- `chmod 777 run_heavy_rain_experiments_plot.sh`
-- `./run_heavy_rain_experiments_plot.sh 5 10`
-
-When the script finishes (after viewing **"finish one graph in the figure"**), please find the plots in *./results/p_heavy_rain_false_positive_tau_$window_threshold_T_$window_size_d_$dist.png"* & *./results/p_heavy_rain_false_negative_tau_$window_threshold_T_$window_size_d_$dist.png*
-
-
 ## Section 6.2 Detect OOD-ness due to change in front obstacles
 
 ### To reproduce the results in Table 3
@@ -47,6 +36,16 @@ When the script finishes (after viewing **"finish one graph in the figure"**), p
 
 It takes about ~3 minutes to finish the experiments <br>
 When the script finishes (after viewing **"finish bike experiment 4/4"**), it will print out all the experimental results and you can also find the results in *./results/carla_ood_bikes_exp_results.txt*
+
+### To reproduce Figure 11 (from Appendix)
+
+We find that it takes about 6 hours to reproduce Figure 11 (3 plots total and 21 points in each plot), so we provide a script to generate one plot only (~2 hour). <br>
+- for generating one plot for viewing influence of different window threshold with selected parameters, ex. tau (window_threshold) = 5, W (window_size) = 10, run following commands
+run 
+- `chmod 777 run_heavy_rain_experiments_plot.sh`
+- `./run_heavy_rain_experiments_plot.sh 5 10`
+
+When the script finishes (after viewing **"finish one graph in the figure"**), please find the plots in *./results/p_heavy_rain_false_positive_tau_$window_threshold_T_$window_size_d_$dist.png"* & *./results/p_heavy_rain_false_negative_tau_$window_threshold_T_$window_size_d_$dist.png*
 
 ## To generate memories from scratch (Optional)
 
