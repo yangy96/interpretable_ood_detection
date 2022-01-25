@@ -2,7 +2,7 @@
 
 ## To reproduce the results in Table 4
 
-- for generating results for 1 row of the table, ex. W (window_size) = 5, tau (window_threshold) = 5, alpha (prob_threshold) = 0.05, d (initial_memory_threshold) = 0.5 and LIDAR_memories_$d$ = LIDAR_memories_0.5: 
+- for generating results for 1 row of the table, ex. W (window_size) = 5, tau (window_threshold) = 5, alpha (prob_threshold) = 0.05, d (initial_memory_threshold) = 0.5 and memory_dir = ./memories/carla_adv_memories_10_$d$: 
 `python3 main.py --predict_carla True --initial_memory_threshold 0.5 --memory_dir ./memories/carla_adv_memories_10_0.5 --test_carla_dir ./test_attacks --prob_threshold 0.05 --window_size 5 --window_threshold 5`
 
 - for generating results for the entire table (4 rows), please run the following two commands:
