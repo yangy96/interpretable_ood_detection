@@ -32,7 +32,7 @@ run `exit` <br>
 ## Step 3) Download the data and reproduce the results
 
 ### To run OOD experiments to detect change in carla simulation (section 6.1 & 6.2)
-1. Download CARLA data under this link: https://drive.google.com/file/d/1I1Rm-EziREPiBDAQSraYt0j_VwCbqLZE/view?usp=sharing and put it in interpretable_ood_detection/carla_experiments folder.
+1. Download CARLA data under this link: https://drive.google.com/file/d/1I1Rm-EziREPiBDAQSraYt0j_VwCbqLZE/view?usp=sharing and put it as `carla_data.tar` in interpretable_ood_detection/carla_experiments folder.
 
 (Note: the data used in this experiment is about 16GB)
 
@@ -43,7 +43,7 @@ run `exit` <br>
 4. Follow instructions in carla_experiments/*README.md*
 
 ### To run OOD experiments to detect perturbations by adversarial attack (section 6.3)
-1. Download  CARLA ADVERSARIAL data under this link: https://drive.google.com/file/d/17dKNOAQWOL3KGbv7oj0-rV8FIHcakPPU/view?usp=sharing and put it in interpretable_ood_detection/carla_adversarial_experiments folder.
+1. Download  CARLA ADVERSARIAL data under this link: https://drive.google.com/file/d/17dKNOAQWOL3KGbv7oj0-rV8FIHcakPPU/view?usp=sharing and put it as `carla_adversarial.tar` in interpretable_ood_detection/carla_adversarial_experiments folder.
  
 (Note: the data used in this experiment is about 16GB)
 
