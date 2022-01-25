@@ -16,7 +16,7 @@ When the script finishes (after viewing **"finish experiment 4/4"**), it will pr
 ## To reproduce Figure 6
 We find that it takes about 10 hours to reproduce Figure 6 (8 plots total and 9 points in each plot), so we provide a script to generate one plot only (~an hour). <br>
 
-- for generating one plot for viewing influence of different window threshold with selected parameters, ex. tau (window_threshold) = 5, W (window_size) = 10, d (initial_memory_threshold) = 0.5, (note that d is 0.5 or 0.6) run following commands
+- for generating one plot for viewing influence of different window threshold with selected parameters, ex. T (window_threshold) = 5, W (window_size) = 10, d (initial_memory_threshold) = 0.5, (note that d is 0.5 or 0.6) run following commands
 - `chmod 777 run_sticker_experiments_plot.sh`
 - `./run_sticker_experiments_plot.sh 5 10 0.5`
 
