@@ -40,12 +40,12 @@ When the script finishes (after viewing **"finish bike experiment 4/4"**), it wi
 ## To reproduce Figure 11 (from Appendix)
 
 We find that it takes about 6 hours to reproduce Figure 11 (3 plots total and 21 points in each plot), so we provide a script to generate one plot only (~2 hour). <br>
-- for generating one plot for viewing influence of different window threshold with selected parameters, ex. tau (window_threshold) = 5, W (window_size) = 10, run following commands
+- for generating one plot for viewing influence of different window threshold with selected parameters, ex. T = 5, W = 10, run following commands
 run 
 - `chmod 777 run_heavy_rain_experiments_plot.sh`
 - `./run_heavy_rain_experiments_plot.sh 5 10`
 
-When the script finishes (after viewing **"finish one graph in the figure"**), please find the plots in *./results/p_heavy_rain_false_positive_tau_$window_threshold_T_$window_size_d_$dist.png"* & *./results/p_heavy_rain_false_negative_tau_$window_threshold_T_$window_size_d_$dist.png*
+When the script finishes (after viewing **"finish one graph in the figure"**), please find the plots in *./results/p_heavy_rain_false_positive_T_$T$\_W\_$W$\_d\_$0.2.png"* & *./results/p_heavy_rain_false_negative_T_$T$\_W\_$W$\_$0.2.png*
 
 ## To generate memories from scratch (Optional)
 
