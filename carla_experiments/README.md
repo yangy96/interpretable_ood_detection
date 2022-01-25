@@ -28,7 +28,7 @@ When the script finishes (after viewing **finish both experiments**), it will pr
 
 ### To reproduce the results in Table 3
 
-- for generating results for 1 row of the table, ex. W (window_size) = 5, tau (window_threshold) = 5, alpha (prob_threshold) = 0.92, d (initial_memory_threshold) = 0.2 and memory_dir =  ./memories/carla_memories_10_$d$ = ./memories/carla_memories_10_0.2, task = oods_bike: `python3 main.py --predict_carla True --memory_dir ./memories/carla_memories_10_0.2  --test_carla_dir ./test_carla/oods_bike --prob_threshold 0.92 --window_size 5 --window_threshold 5 --task oods_bike`
+- for generating results for 1 row of the table, ex. W (window_size) = 5, tau (window_threshold) = 5, alpha (prob_threshold) = 0.92, d (initial_memory_threshold) = 0.2 and memory_dir =  ./memories/carla_memories_10_$d$ = ./memories/carla_memories_10_0.2, task = oods_bike: `python3 main.py --predict_carla True --memory_dir ./memories/carla_memories_10_0.2  --initial_memory_threshold 0.2 --test_carla_dir ./test_carla/oods_bike --prob_threshold 0.92 --window_size 5 --window_threshold 5 --task oods_bike`
 
 - for generating results for the entire table (4 rows), please run the following two commands:
 - `chmod 777 run_bike_experiments.sh`
