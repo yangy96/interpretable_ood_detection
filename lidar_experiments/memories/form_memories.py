@@ -8,6 +8,8 @@ import os
 import warnings
 warnings.filterwarnings("ignore")
 
+np.random.seed(101)
+
 def build_memories(source_dir, dest_dir, init_distance):
 
     if not os.path.exists(dest_dir):

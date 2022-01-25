@@ -14,9 +14,10 @@ def plot_one_result(memory_dir,window_size,dist,window_threshold):
     correct_prediction = []
     false_prediction=[]
     for prob in prob_list:
-        in_file = "./ood_result"+"_"+memory_dir.split("/")[-1]+"_"+str(window_size)+"_"+str(prob)+"_"+str(window_threshold)+".json"
+        in_file = "ood_result_adv"+"_"+str(dist)+"_"+str(window_size)+"_"+str(prob)+"_"+str(window_threshold)+".json"
         with open(os.path.join("results",in_file)) as json_file:
             data = json.load(json_file)
+            #load TPR and FPR from json file
             correct_prediction.append(data["corrrect_collision_rate"])
             false_prediction.append(data["wrong_collision_rate"])
         json_file.close()
@@ -29,7 +30,7 @@ def plot_one_result(memory_dir,window_size,dist,window_threshold):
     plt.legend(fontsize=12)
     plt.ylabel("True Prediction Rate",fontsize=18,weight="bold")
     plt.xlabel("Probability Density Threshold",fontsize=18,weight="bold")
-    plt.savefig("./results/p_sticker_true_prediction_tau_"+str(window_threshold)+"_T_"+str(window_size)+"_d_"+str(dist)+".png",bbox_inches='tight')
+    plt.savefig("./results/p_sticker_true_prediction_T_"+str(window_threshold)+"_W_"+str(window_size)+"_d_"+str(dist)+".png",bbox_inches='tight')
     plt.close() 
 
     plt.figure()
@@ -39,5 +40,5 @@ def plot_one_result(memory_dir,window_size,dist,window_threshold):
     plt.legend(fontsize=12)
     plt.ylabel("False Prediction Rate",fontsize=18,weight="bold")
     plt.xlabel("Probability Density Threshold",fontsize=18,weight="bold")
-    plt.savefig("./results/p_sticker_false_prediction_tau_"+str(window_threshold)+"_T_"+str(window_size)+"_d_"+str(dist)+".png",bbox_inches='tight')
+    plt.savefig("./results/p_sticker_false_prediction_T_"+str(window_threshold)+"_W_"+str(window_size)+"_d_"+str(dist)+".png",bbox_inches='tight')
     plt.close() 

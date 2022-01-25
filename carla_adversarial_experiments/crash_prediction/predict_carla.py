@@ -127,14 +127,16 @@ def check_carla_crash_ood(exp_folder,memorization_object,initial_memory_threshol
     
     if collision_predict > 0:
         results_stat["corrrect_collision_rate"] = 100*round(correct_collision/collision_total,3)
-        results_stat["total_collision_rate"] = 100*round(correct_collision+late_collision/collision_predict,3)
         results_stat["miss_collision_rate"] = 100*round(miss_collision/collision_total,3)
         results_stat["wrong_collision_rate"] = 100*round(wrong_collision/collision_predict,3)
         results_stat["late_collision_rate"] = 100*round(late_collision/collision_predict,3)
-        results_stat["early_alarm"]= round(early_alarm/correct_collision,2)
+        if (correct_collision > 0):
+            results_stat["early_alarm"]= round(early_alarm/correct_collision,2)
+        else:
+            results_stat["early_alarm"]= 0.0
+        
     else:
-        results_stat["corrrect_collision_rate"] = 0.0
-        results_stat["total_collision_rate"] = 0.0
+        results_stat["corrrect_collision_rate"] = 100*round(correct_collision/collision_total,3)
         results_stat["miss_collision_rate"] = round(miss_collision/collision_total,2)
         results_stat["wrong_collision_rate"] = 0.0
         results_stat["late_collision_rate"] = 0.0

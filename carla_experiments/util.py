@@ -11,12 +11,12 @@ def plot_one_result(memory_dir,window_size,dist,window_threshold,task):
     if task == "heavy_rain":
         
         for prob in prob_list:
-            in_file = "./ood_result"+"_in_"+task+"_"+memory_dir.split("/")[-1]+"_"+str(window_size)+"_"+str(prob)+"_"+str(window_threshold)+".json"
+            in_file = "./ood_result"+"_in_"+task+"_"+str(dist)+"_"+str(window_size)+"_"+str(prob)+"_"+str(window_threshold)+".json"
             with open(os.path.join("results",in_file)) as json_file:
                 data = json.load(json_file)
                 fp_prediction.append(data["detection_rate"])
             json_file.close()
-            out_file = "./ood_result"+"_out_"+task+"_"+memory_dir.split("/")[-1]+"_"+str(window_size)+"_"+str(prob)+"_"+str(window_threshold)+".json"
+            out_file = "./ood_result"+"_out_"+task+"_"+str(dist)+"_"+str(window_size)+"_"+str(prob)+"_"+str(window_threshold)+".json"
             with open(os.path.join("results",out_file)) as json_file:
                 data = json.load(json_file)
                 fn_prediction.append(1-data["detection_rate"])
@@ -30,7 +30,7 @@ def plot_one_result(memory_dir,window_size,dist,window_threshold,task):
         plt.legend(fontsize=12)
         plt.ylabel("False Positive Rate",fontsize=18,weight="bold")
         plt.xlabel("Probability Density Threshold",fontsize=18,weight="bold")
-        plt.savefig("./results/p_heavy_rain_false_positive_tau_"+str(window_threshold)+"_T_"+str(window_size)+"_d_"+str(dist)+".png",bbox_inches='tight')
+        plt.savefig("./results/p_heavy_rain_false_positive_T_"+str(window_threshold)+"_W_"+str(window_size)+"_d_"+str(dist)+".png",bbox_inches='tight')
         plt.close() 
 
         plt.figure()
@@ -40,7 +40,7 @@ def plot_one_result(memory_dir,window_size,dist,window_threshold,task):
         plt.legend(fontsize=12)
         plt.ylabel("False Negative Rate",fontsize=18,weight="bold")
         plt.xlabel("Probability Density Threshold",fontsize=18,weight="bold")
-        plt.savefig("./results/p_heavy_rain_false_negative_tau_"+str(window_threshold)+"_T_"+str(window_size)+"_d_"+str(dist)+".png",bbox_inches='tight')
+        plt.savefig("./results/p_heavy_rain_false_negative_T_"+str(window_threshold)+"_W_"+str(window_size)+"_d_"+str(dist)+".png",bbox_inches='tight')
         plt.close() 
                         
             

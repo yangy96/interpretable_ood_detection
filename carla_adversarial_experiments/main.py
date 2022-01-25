@@ -40,7 +40,7 @@ if __name__ == "__main__":
         if not os.path.exists('./results'):
             os.mkdir('./results')
         stats = form_memories.run_carla_prediction(args.memory_dir, args.test_carla_dir, args.initial_memory_threshold, args.prob_threshold, args.window_size, args.window_threshold)
-        with open("./results/ood_result"+"_"+args.memory_dir.split("/")[-1]+"_"+str(args.window_size)+"_"+str(args.prob_threshold)+"_"+str(args.window_threshold)+".json", 'w') as outfile:
+        with open("./results/ood_result_adv"+"_"+args.initial_memory_threshold+"_"+str(args.window_size)+"_"+str(args.prob_threshold)+"_"+str(args.window_threshold)+".json", 'w') as outfile:
             json.dump(stats, outfile)
         outfile.close()
 

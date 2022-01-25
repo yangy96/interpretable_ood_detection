@@ -1,4 +1,4 @@
-echo "Warning: running this script takes about 1.5 hour"
+echo "Warning: running this script takes about 2 hour"
 
 win_thre=$1
 win_size=$2

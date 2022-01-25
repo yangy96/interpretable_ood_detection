@@ -11,7 +11,7 @@
 - `./run_heavy_rain_experiments.sh`
 
 It takes about ~20 minutes to finish the experiments <br>
-When the script finishes (after viewing **finish heavy rain experiment 4/4**), it will print out all the experimental results and you can also find the results in *./results/carla_oods_night_exp_results.txt* and *./results/carla_oods_foggy_exp_results.txt*
+When the script finishes (after viewing **finish heavy rain experiment 4/4**), it will print out all the experimental results and you can also find the results in  *./results/carla_heavy_rain_exp_results.txt*
 
 ### To reproduce the results in Table 2 (Night and Foggy Scenario)
 
@@ -47,7 +47,7 @@ run
 - `chmod 777 run_heavy_rain_experiments_plot.sh`
 - `./run_heavy_rain_experiments_plot.sh 5 10`
 
-When the script finishes (after viewing **"finish one graph in the figure"**), please find the plots in *./results/p_heavy_rain_false_positive_T_$T$\_W\_$W$\_d\_0.2.png* & *./results/p_heavy_rain_false_negative_T_$T$\_W\_$W$\_0.2.png*
+When the script finishes (after viewing **"finish one graph in the figure"**), please find the plots in *./results/p_heavy_rain_false_positive_T_$T$\_W\_$W$\_d\_0.2.png* & *./results/p_heavy_rain_false_negative_T_$T$\_W\_$W$\_d\_0.2.png*
 
 ## To generate memories from scratch (Optional)
 
