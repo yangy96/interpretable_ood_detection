@@ -45,7 +45,7 @@ run
 - `chmod 777 run_heavy_rain_experiments_plot.sh`
 - `./run_heavy_rain_experiments_plot.sh 5 10`
 
-When the script finishes (after viewing **"finish one graph in the figure"**), please find the plots in *./results/p_heavy_rain_false_positive_T_$T$\_W\_$W$\_d\_0.2.png"* & *./results/p_heavy_rain_false_negative_T_$T$\_W\_$W$\_0.2.png*
+When the script finishes (after viewing **"finish one graph in the figure"**), please find the plots in *./results/p_heavy_rain_false_positive_T_$T$\_W\_$W$\_d\_0.2.png* & *./results/p_heavy_rain_false_negative_T_$T$\_W\_$W$\_0.2.png*
 
 ## To generate memories from scratch (Optional)
 
