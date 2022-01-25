@@ -15,7 +15,7 @@ When the script finishes (after viewing **finish heavy rain experiment 4/4**), i
 
 ### To reproduce the results in Table 2 (Night and Foggy Scenario)
 
-- for generating results for 1 row of the table, ex. W (window_size) = 5, tau (window_threshold) = 5, alpha (prob_threshold) = 0.92, d (initial_memory_threshold) = 0.2 and memory_dir =  ./memories/carla_memories_10_$d$ = ./memories/carla_memories_10_0.2, task = oods_night (task choices are: oods_night, oods_foggy in this experiment) test_carla_dir=./test_carla/$task: `python3 main.py --predict_carla True --memory_dir ./memories carla_memories_10_0.2  --initial_memory_threshold 0.2 --test_carla_dir ./test_carla/oods_night --prob_threshold 0.92 --window_size 5 --window_threshold 5 --task oods_night`
+- for generating results for 1 row of the table, ex. W (window_size) = 5, tau (window_threshold) = 5, alpha (prob_threshold) = 0.92, d (initial_memory_threshold) = 0.2 and memory_dir =  ./memories/carla_memories_10_$d$ = ./memories/carla_memories_10_0.2, task = oods_night (task choices are: oods_night, oods_foggy in this experiment) test_carla_dir=./test_carla/$task: `python3 main.py --predict_carla True --memory_dir ./memories/carla_memories_10_0.2  --initial_memory_threshold 0.2 --test_carla_dir ./test_carla/oods_night --prob_threshold 0.92 --window_size 5 --window_threshold 5 --task oods_night`
 
 - for generating results for the entire table (8 rows), please run the following two commands:
 - `chmod 777 run_night_and_foggy.sh`
