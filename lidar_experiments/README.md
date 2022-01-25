@@ -5,7 +5,8 @@
 - for generating results for 1 row of the table, ex. W (window_size) = 40, tau (window_threshold) = 15, alpha (prob_threshold) = 0.05, d (initial_memory_threshold) = 0.3 and LIDAR_memories_$d$ = LIDAR_memories_0.3: 
 `python3 main.py --predict_crash True --memory_dir ./memories/LIDAR_memories_0.3 --prob_threshold 0.05 --window_size 40 --window_threshold 15 --initial_memory_threshold 0.3`
 
-The expected table would be ![](../expected_output/table_5_a.png)
+The expected table would be <br>
+<img src="../expected_output/table_5_a.png" width="500" />
 
 - for generating results for the entire table (4 rows), please run the following two commands:
 - `chmod 777 run_lidar_experiments.sh`
@@ -14,7 +15,8 @@ The expected table would be ![](../expected_output/table_5_a.png)
 It takes about 20 minutes for generating results of the entire Table 5, i.e. running the script run_lidar_experiments.sh <br>
 When the script finishes (i.e. after printing **"finish experiment 4/4"**), you will see all the experimental results printed on console. You can also find the results in *./results/lidar_exp_results.txt*
 
-The expected table would be ![](../expected_output/table_5_b.png)
+The expected table would be <br>
+<img src="../expected_output/table_5_b.png" width="500" />
 
 ## To reproduce Figure 10
 We find that it takes about 14 hours to reproduce Figure 10 (12 plots total and 18 points in each plot), so we provide a script to generate one plot. <br>
@@ -32,7 +34,8 @@ When the script finishes (after viewing **"finish one graph in the figure"**), p
 
 please find the plots in *./results/p_lidar_true_prediction.png & ./results/p_lidar_false_prediction.png*
 
-The expected table would be ![](../expected_output/figure_10.png)
+The expected figure would be 
+<img src="../expected_output/figure_10.png" width="800" />
 
 ## To generate memories from scratch (Optional)
 
