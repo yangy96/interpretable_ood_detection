@@ -49,9 +49,9 @@ When the script finishes (after viewing **"finish one graph in the figure"**), p
 
 ## To generate memories from scratch (Optional)
 
-The above experiments use the memories that were used in the experiments for the paper (in *./memories/carla_memories_10_0.2* & *./memories/carla_memories_10_0.3* ). If you want to generate the memories from scratch and then run the aboove experiments, then please run the following commands before running the experiments <br>
-run 
+The above experiments use the memories that were used in the experiments for the paper (in *./memories/carla_memories_10_0.2* & *./memories/carla_memories_10_0.3* ). If you want to generate the memories from scratch and then run the above experiments, then please run the following commands before running the experiments <br>
+
 - `chmod 777 run_carla_memory_generation.sh`
 - `./run_carla_memory_generation.sh`
 
-Note: The generated memories might differ from the exisitng ones, depending on the random seed. 
+Note: The generated memories might differ from the exisitng ones, depending on the value of the initial random seed. 
