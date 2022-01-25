@@ -37,6 +37,8 @@ When the script finishes (after viewing **finish both experiments**), it will pr
 It takes about ~3 minutes to finish the experiments <br>
 When the script finishes (after viewing **"finish bike experiment 4/4"**), it will print out all the experimental results and you can also find the results in *./results/carla_ood_bikes_exp_results.txt*
 
+Note: The results for FP in table 3 are the same results on FP from Table 1. So, we do not print the FP here again.
+
 ## To reproduce Figure 11 (from Appendix)
 
 We find that it takes about 6 hours to reproduce Figure 11 (3 plots total and 21 points in each plot), so we provide a script to generate one plot only (~2 hour). <br>
