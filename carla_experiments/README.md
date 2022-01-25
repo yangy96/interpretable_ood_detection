@@ -4,7 +4,7 @@
 
 ### To reproduce the results in Table 1 (Heavy Rain Scenario)
 
-- for generating results for 1 row of the table, ex. W (window_size) = 5, tau (window_threshold) = 5, alpha (prob_threshold) = 0.92, d (initial_memory_threshold) = 0.2 and memory_dir =  ./memories/carla_memories_10_$d$ = ./memories/carla_memories_10_0.2, task = heavy_rain (automatically run both in-dist exp & ood exp): `python3 main.py --predict_carla True --memory_dir ./memories/carla_memories_10_0.2  --initial_memory_threshold 0.2 --test_carla_dir ./test_carla --prob_threshold 0.92 --window_size 5 --window_threshold 5 --task heavy_rain`
+- for generating results for 1 row of the table, ex. W (window_size) = 5, tau (window_threshold) = 5, alpha (prob_threshold) = 0.92, d (initial_memory_threshold) = 0.2 and memory_dir =  ./memories/carla_memories_10_$d$ = ./memories/carla_memories_10_0.2, task = heavy_rain: `python3 main.py --predict_carla True --memory_dir ./memories/carla_memories_10_0.2  --initial_memory_threshold 0.2 --test_carla_dir ./test_carla --prob_threshold 0.92 --window_size 5 --window_threshold 5 --task heavy_rain`
 
 - for generating results for the entire table (4 rows), please run the following two commands:
 - `chmod 777 run_heavy_rain_experiments.sh`
