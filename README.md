@@ -27,7 +27,7 @@ Please follow the steps below to reproduce the results.
 
 ## Step 3) Set up the environment
 
-This step is for seting up the environment and installing the dependancies for running our experiments. 
+This step is for seting up the environment and installing the dependancies for running all our experiments. 
 
 Please choose one of these: virtual environment (preferred) or docker
 
