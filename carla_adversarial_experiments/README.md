@@ -24,9 +24,9 @@ When the script finishes (after viewing **"finish one graph in the figure"**), p
 
 ## To generate memories from scratch (Optional)
 
-We already provide the memories we used in experiments (in *./memories/carla_adv_memories_10_0.5* & *./memories/carla_adv_memories_10_0.6* ), if want to generate the memories, <br>
-run 
+The above experiments use the memories that were used in the experiments for the paper (in *./memories/carla_adv_memories_10_0.5* & *./memories/carla_adv_memories_10_0.6* ). If you want to generate the memories from scratch and then run the above experiments, then please run the following commands before running the experiments
+
 - `chmod 777 run_memory_generation.sh`
 - `./run_memory_generation.sh`
 
-Note: The generated memories might differ from the exisitng ones, depending on the random seed. 
+Note: The generated memories might differ from the exisitng ones, depending on the value of the initial random seed. 
