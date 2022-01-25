@@ -186,7 +186,7 @@ def check_carla_heavy_rain_ood(exp_folder,memorization_object,initial_memory_thr
 
     results_stat = {}
 
-    results_stat["detection_rate"] = round(ood_epi/len(exp_list),3)
+    results_stat["detection_rate"] = 100*round(ood_epi/len(exp_list),3)
     results_stat["ood_episode"] = ood_epi
     results_stat["total_episode"] = len(exp_list)
     results_stat["detect_frame_list"] = detect_frame_list
