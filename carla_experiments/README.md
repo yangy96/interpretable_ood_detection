@@ -53,7 +53,7 @@ The expected table would be ![](../expected_output/table_3_b.png)
 
 ## To reproduce Figure 11 (from Appendix)
 
-We find that it takes about 6 hours to reproduce Figure 11 (3 plots total and 21 points in each plot), so we provide a script to generate one plot only (~2 hour). <br>
+We find that it takes about 7 hours to reproduce Figure 11 (3 plots total and 21 points in each plot), so we provide a script to generate one plot only (~2 hour). <br>
 - for generating one plot for viewing influence of different window threshold with selected parameters, ex. T = 5, W = 10, run following commands
 run 
 - `chmod 777 run_heavy_rain_experiments_plot.sh`

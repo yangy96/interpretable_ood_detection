@@ -1,3 +1,4 @@
+echo "Warning: running this script takes about 12 hours"
 
 for dist in 0.2 0.3
 do

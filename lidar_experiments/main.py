@@ -6,7 +6,7 @@
 
 import argparse
 from memories import form_memories
-from util import plot_one_result
+from util import plot_one_result, plot_abalation
 import json
 import os
 import warnings
@@ -45,3 +45,7 @@ if __name__ == "__main__":
 
     if args.plot_one_result :
         plot_one_result(args.memory_dir,args.window_size,args.initial_memory_threshold,args.prob_threshold)
+    
+    if args.plot_full_abalation:
+        plot_abalation()
+
