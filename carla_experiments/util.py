@@ -19,7 +19,7 @@ def plot_one_result(memory_dir,window_size,dist,window_threshold,task):
             out_file = "./ood_result"+"_out_"+task+"_"+str(dist)+"_"+str(window_size)+"_"+str(prob)+"_"+str(window_threshold)+".json"
             with open(os.path.join("results",out_file)) as json_file:
                 data = json.load(json_file)
-                fn_prediction.append(1-data["detection_rate"])
+                fn_prediction.append(100-data["detection_rate"])
             json_file.close()
             
         plt.figure()
