@@ -9,9 +9,9 @@ RUN apt-get update
 RUN pip3 install --upgrade pip
 RUN pip3 install -U setuptools --no-cache-dir
 
-COPY ./ /home/interpretable_ood_detection
+COPY ./ /home/
 
-WORKDIR /home/
+WORKDIR /home/interpretable_ood_detection
 
 RUN python3 --version
 

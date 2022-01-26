@@ -199,6 +199,7 @@ def check_carla_heavy_rain_ood(exp_folder,memorization_object,initial_memory_thr
 
     total_time = 0
     length = 0
+    #select 3 random traces
     select = random.sample(range(0, len(evaluate_time_list)), 3)
     for m in select:
         total_time += sum(evaluate_time_list[m]) 

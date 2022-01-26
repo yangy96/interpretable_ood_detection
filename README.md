@@ -15,7 +15,7 @@ Please follow the steps below to reproduce the results.
 
 2. `cd interpretable_ood_detection/carla_experiments`
 
-3. `tar -xvf carla_data.tar.gz`
+3. `tar -xvzf carla_data.tar.gz`
 
 4. Download  CARLA ADVERSARIAL data under this link: https://drive.google.com/file/d/17dKNOAQWOL3KGbv7oj0-rV8FIHcakPPU/view?usp=sharing and put it as `carla_adversarial.tar.gz` in interpretable_ood_detection/carla_adversarial_experiments folder.
  
@@ -23,9 +23,11 @@ Please follow the steps below to reproduce the results.
 
 5. `cd interpretable_ood_detection/carla_adversarial_experiments`
 
-6. `tar -xvf carla_adversarial.tar.gz` 
+6. `tar -xvzf carla_adversarial.tar.gz` 
 
 7. `cd ../`
+
+(Note: Lidar experiments folder already contains necessary data)
 
 ## Step 3) Set up the environment
 
