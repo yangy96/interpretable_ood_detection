@@ -40,7 +40,7 @@ def plot_one_result(memory_dir,window_size,dist,prob):
     plt.savefig("./results/p_lidar_false_prediction_alpha_"+prob+"_d_"+dist+".png",bbox_inches='tight')
     plt.close() 
 
-def plot_abalation():
+def plot_ablation():
     window_size = 40
     prob_list = [0.05,0.1,0.15,0.2,0.25,0.3]
     dist_list = [0.2,0.3]

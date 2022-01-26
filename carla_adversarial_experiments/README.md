@@ -31,7 +31,7 @@ When the script finishes (after viewing **"finish one graph in the figure"**), p
 - for generating total 12 plots (complete figure) for viewing influence of different probability threshold, run following commands
 - `chmod 777 run_sticker_all.sh`
 - `./run_sticker_all.sh`
-- `python3 main.py --plot_full_abalation True`
+- `python3 main.py --plot_full_ablation True`
 
 please find the plots in *./results/p_sticker_true_prediction.png & ./results/p_sticker_false_prediction.png*
 

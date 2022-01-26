@@ -7,7 +7,7 @@
 import argparse
 from memories import form_memories
 import json
-from util import plot_one_result,plot_abalation
+from util import plot_one_result,plot_ablation
 import os
 import warnings
 warnings.filterwarnings("ignore")
@@ -29,7 +29,7 @@ if __name__ == "__main__":
     parser.add_argument("--window_threshold", type = int, default = 5 , help = "window threshold")
     parser.add_argument("--task", default = "in" , help = "current task")
     parser.add_argument("--plot_one_result", type = bool, default = False , help = "plot for one graph only")
-    parser.add_argument("--plot_full_abalation", type = bool, default = False , help = "plot for full abalation")
+    parser.add_argument("--plot_full_ablation", type = bool, default = False , help = "plot for full abalation")
     
     args = parser.parse_args()
 
@@ -45,5 +45,5 @@ if __name__ == "__main__":
     if args.plot_one_result :
         plot_one_result(args.memory_dir,args.window_size,args.initial_memory_threshold,args.window_threshold,args.task)
 
-    if args.plot_full_abalation:
-        plot_abalation()
+    if args.plot_full_ablation:
+        plot_ablation()

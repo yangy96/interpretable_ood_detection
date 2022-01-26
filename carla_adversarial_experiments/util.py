@@ -43,7 +43,7 @@ def plot_one_result(memory_dir,window_size,dist,window_threshold):
     plt.savefig("./results/p_sticker_false_prediction_T_"+str(window_threshold)+"_W_"+str(window_size)+"_d_"+str(dist)+".png",bbox_inches='tight')
     plt.close() 
 
-def plot_abalation():
+def plot_ablation():
     prob_list=[0.05,0.1,0.2,0.25,0.3,0.35,0.4,0.45,0.5]
     win_thre = [5,5,7,9]
     window_size=[5,10,10,10]

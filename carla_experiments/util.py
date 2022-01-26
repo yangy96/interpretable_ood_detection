@@ -43,7 +43,7 @@ def plot_one_result(memory_dir,window_size,dist,window_threshold,task):
         plt.savefig("./results/p_heavy_rain_false_negative_T_"+str(window_threshold)+"_W_"+str(window_size)+"_d_"+str(dist)+".png",bbox_inches='tight')
         plt.close() 
 
-def plot_abalation():
+def plot_ablation():
     prob_list = [0.8,0.85,0.86,0.87,0.88,0.89,0.9,0.91,0.92,0.93,0.94,0.95,0.96,0.97,0.98,0.99,1.0,1.01,1.02,1.03,1.04,1.05]
     fp_prediction = []
     fn_prediction=[]

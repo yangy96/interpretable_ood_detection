@@ -30,7 +30,7 @@ When the script finishes (after viewing **"finish one graph in the figure"**), p
 - for generating total 12 plots (complete figure) for viewing influence of different window threshold, run following commands
 - `chmod 777 run_lidar_all.sh`
 - `./run_lidar_all.sh`
-- `python3 main.py --plot_full_abalation True`
+- `python3 main.py --plot_full_ablation True`
 
 please find the plots in *./results/p_lidar_true_prediction.png & ./results/p_lidar_false_prediction.png*
 
