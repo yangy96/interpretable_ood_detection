@@ -50,7 +50,7 @@ The expected table would be <br>
 - `./run_bike_experiments.sh`
 
 It takes about ~3 minutes to finish the experiments <br>
-When the script finishes (after viewing **"finish bike experiment 4/4"**), it will print out all the experimental results and you can also find the results in *./results/carla_ood_bikes_exp_results.txt*
+When the script finishes (after viewing **"finish bike experiment 4/4"**), it will print out all the experimental results and you can also find the results in *./results/carla_oods_bike_exp_results.txt*
 
 The expected table would be <br>
 <img src="../expected_output/table_3_b.png" width="400" />
