@@ -27,7 +27,7 @@ def plot_one_result(memory_dir,window_size,dist,prob):
     plt.legend(fontsize=10)
     plt.ylabel("True Prediction Rate",fontsize=18,weight="bold")
     plt.xlabel("Threshold/Window",fontsize=18,weight="bold")
-    plt.savefig("./results/p_lidar_true_prediction_alpha_"+prob+"_d_"+dist+".png",bbox_inches='tight')
+    plt.savefig("./results/p_lidar_true_prediction_alpha_"+str(prob)+"_d_"+str(dist)+".png",bbox_inches='tight')
     plt.close() 
     plt.figure()
 
@@ -37,7 +37,7 @@ def plot_one_result(memory_dir,window_size,dist,prob):
     plt.plot(keys,false_prediction, label="d: "+str(dist)+" "+"alpha "+str(prob))
     plt.ylabel("False Prediction Rate",fontsize=18,weight="bold")
     plt.xlabel("Threshold/Window",fontsize=18,weight="bold")
-    plt.savefig("./results/p_lidar_false_prediction_alpha_"+prob+"_d_"+dist+".png",bbox_inches='tight')
+    plt.savefig("./results/p_lidar_false_prediction_alpha_"+str(prob)+"_d_"+str(dist)+".png",bbox_inches='tight')
     plt.close() 
 
 def plot_ablation():
