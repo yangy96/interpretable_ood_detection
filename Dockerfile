@@ -9,7 +9,7 @@ RUN apt-get update
 RUN pip3 install --upgrade pip
 RUN pip3 install -U setuptools --no-cache-dir
 
-COPY ./ /home/
+COPY ./ /home/interpretable_ood_detection
 
 WORKDIR /home/
 
@@ -17,4 +17,3 @@ RUN python3 --version
 
 RUN pip install -r requirements.txt
 
-#CMD ["./run_file"]
