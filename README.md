@@ -55,15 +55,15 @@ run `exit` <br>
 
 ### To run OOD experiments to detect change in carla simulation (section 6.1 & 6.2)
 
-1. `cd interpretable_ood_detection/carla_experiments` <br>
+1. `cd carla_experiments` <br>
 2. Follow instructions in carla_experiments/*README.md*
 
 ### To run OOD experiments to detect perturbations by adversarial attack (section 6.3)
 
-1. `cd interpretable_ood_detection/carla_adversarial_experiments` <br>
+1. `cd carla_adversarial_experiments` <br>
 2. Follow instructions in carla_adversarial_experiments/*README.md*
 
 ### To run OOD experiments for lidar data (section 7.3)
-1. `cd interpretable_ood_detection/lidar_experiments` <br>
+1. `cd lidar_experiments` <br>
 2. Follow instructions in lidar_experiments/*README.md*
 
