@@ -67,7 +67,7 @@ run
 
 When the script finishes (after viewing **"finish one graph in the figure"**), please find the plots in *./results/p_heavy_rain_false_positive_T_$T$\_W\_$W$\_d\_0.2.png* & *./results/p_heavy_rain_false_negative_T_$T$\_W\_$W$\_d\_0.2.png*
 
-- for generating total 3 plots (complete figure) for viewing influence of different probability threshold, run following commands
+- for generating all 3 plots (complete figure) for viewing influence of different probability threshold, run following commands
 - `chmod 777 run_heavy_rain_all.sh`
 - `./run_heavy_rain_all.sh`
 - `python3 main.py --plot_full_ablation True`
