@@ -28,7 +28,7 @@ We find that it takes about 10 hours to reproduce Figure 6 (8 plots total and 9 
 
 When the script finishes (after viewing **"finish one graph in the figure"**), please find the plots in *./results/p_sticker_true_prediction_T_$T$\_W\_$W$\_d\_$d$.png* & *./results/p_sticker_false_prediction_T_$T$\_W\_$W$\_d\_$d$.png*
 
-- for generating total 12 plots (complete figure) for viewing influence of different probability threshold, run following commands
+- for generating all 12 plots (complete figure) for viewing influence of different probability threshold, run following commands
 - `chmod 777 run_sticker_all.sh`
 - `./run_sticker_all.sh`
 - `python3 main.py --plot_full_ablation True`

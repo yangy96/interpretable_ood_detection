@@ -14,8 +14,6 @@ import time
 from copy import deepcopy as dc
 from collections import OrderedDict
 
-from distance_calculations.calculate_distance import compute_distance
-from distance_calculations.find_features import return_feature_vector
 from distance_calculations.pytorch_modified_msssim import ssim, ms_ssim, SSIM, MS_SSIM
 from memories.memory import memory
 from memories.data import data

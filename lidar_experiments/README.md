@@ -27,7 +27,7 @@ We find that it takes about 14 hours to reproduce Figure 10 (12 plots total and 
 
 When the script finishes (after viewing **"finish one graph in the figure"**), please find the plots in *./results/p_lidar_true_prediction_alpha_$alpha$\_d\_$d$.png & ./results/p_lidar_false_prediction_alpha_$alpha$\_d\_$d$.png*
 
-- for generating total 12 plots (complete figure) for viewing influence of different window threshold, run following commands
+- for generating all 12 plots (complete figure) for viewing influence of different window threshold, run following commands
 - `chmod 777 run_lidar_all.sh`
 - `./run_lidar_all.sh`
 - `python3 main.py --plot_full_ablation True`
