@@ -27,7 +27,7 @@ We find that it takes about 14 hours to reproduce Figure 10 (12 plots total and 
 
 When the script finishes (after viewing **"finish one graph in the figure"**), please find the plots in *./results/p_lidar_true_prediction_alpha_$alpha$\_d\_$d$.png & ./results/p_lidar_false_prediction_alpha_$alpha$\_d\_$d$.png*
 
-- for generating total 12 plots (complete figure) for viewing influence of different window threshold with selected parameters, run following commands
+- for generating total 12 plots (complete figure) for viewing influence of different window threshold, run following commands
 - `chmod 777 run_lidar_all.sh`
 - `./run_lidar_all.sh`
 - `python3 main.py --plot_full_abalation True`
@@ -41,7 +41,12 @@ The expected figure would be
 
 The above experiments use the memories that were used in the experiments for the paper (in *./memories/LIDAR_memories_0.2* & *LIDAR_memories_0.3*). If you want to generate the memories from scratch and then run the aboove experiments, then please run the following commands before running the experiments for Table 5 and Figure 10 <br>
 
-- `chmod 777 run_lidar_memory_generation.sh`
-- `./run_lidar_memory_generation.sh`
+ex. d (initial_memory_threshold) = 0.2 and LIDAR_memories_$d$ = LIDAR_memories_0.2
+
+- `python3 main.py --build_memories True --memory_source split_train_test/lidar_data/clean_data --memory_dir ./memories/LIDAR_memories_0.2 --initial_memory_threshold 0.2`
+
+ex. d (initial_memory_threshold) = 0.3 and LIDAR_memories_$d$ = LIDAR_memories_0.3
+
+- `python3 main.py --build_memories True --memory_source split_train_test/lidar_data/clean_data --memory_dir ./memories/LIDAR_memories_0.3 --initial_memory_threshold 0.3`
 
 Note: The generated memories might differ from the exisitng ones, depending on the random seed. 

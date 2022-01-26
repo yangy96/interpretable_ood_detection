@@ -60,12 +60,19 @@ The expected table would be <br>
 ## To reproduce Figure 11 (from Appendix)
 
 We find that it takes about 7 hours to reproduce Figure 11 (3 plots total and 21 points in each plot), so we provide a script to generate one plot only (~2 hour). <br>
-- for generating one plot for viewing influence of different window threshold with selected parameters, ex. T = 5, W = 10, run following commands
+- for generating one plot for viewing influence of different probability threshold with selected parameters, ex. T = 5, W = 10, run following commands
 run 
 - `chmod 777 run_heavy_rain_experiments_plot.sh`
 - `./run_heavy_rain_experiments_plot.sh 5 10`
 
 When the script finishes (after viewing **"finish one graph in the figure"**), please find the plots in *./results/p_heavy_rain_false_positive_T_$T$\_W\_$W$\_d\_0.2.png* & *./results/p_heavy_rain_false_negative_T_$T$\_W\_$W$\_d\_0.2.png*
+
+- for generating total 3 plots (complete figure) for viewing influence of different probability threshold, run following commands
+- `chmod 777 run_heavy_rain_all.sh`
+- `./run_heavy_rain_all.sh`
+- `python3 main.py --plot_full_abalation True`
+
+please find the plots in *./results/p_heavy_rain_false_positive.png & ./results/p_heavy_rain_false_negative.png*
 
 The expected figure would be <br>
 <img src="../expected_output/figure_11.png" width="600" />
