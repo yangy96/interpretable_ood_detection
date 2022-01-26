@@ -61,7 +61,7 @@ def plot_ablation():
             out_file = "./ood_result"+"_out_"+task+"_"+str(dist)+"_"+str(window)+"_"+str(prob)+"_"+str(window_threshold)+".json"
             with open(os.path.join("results",out_file)) as json_file:
                 data = json.load(json_file)
-                fn_prediction[window].append(1-data["detection_rate"])
+                fn_prediction[window].append(100-data["detection_rate"])
             json_file.close()
             
     plt.figure()
