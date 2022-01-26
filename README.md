@@ -33,7 +33,7 @@ Please follow the steps below to reproduce the results.
 
 This step is for seting up the environment and installing the dependancies for running all our experiments. 
 
-Please choose one of these: virtual environment (preferred) or docker.(Make sure you are under directory `interpretable_ood_detection`)
+Please choose one of these: virtual environment (preferred) or docker. (Please check that you are under directory `interpretable_ood_detection`)
 
 ### Virtual Environment (Preferred)
 1. Create a virtual environment: `python3 -m venv env`
