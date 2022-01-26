@@ -81,7 +81,12 @@ The expected figure would be <br>
 
 The above experiments use the memories that were used in the experiments for the paper (in *./memories/carla_memories_10_0.2* & *./memories/carla_memories_10_0.3* ). If you want to generate the memories from scratch and then run the above experiments, then please run the following commands before running the experiments <br>
 
-- `chmod 777 run_carla_memory_generation.sh`
-- `./run_carla_memory_generation.sh`
+ex. d (initial_memory_threshold) = 0.2 and carla_memories_10_$d$ = carla_memories_10_0.2
+
+- `python3 main.py --build_memories True --memory_source ./training_data --memory_dir ./memories/carla_memories_10_0.2 --initial_memory_threshold 0.2`
+
+ex. d (initial_memory_threshold) = 0.3 and carla_memories_10_$d$ = carla_memories_10_0.3
+
+- `python3 main.py --build_memories True --memory_source ./training_data --memory_dir ./memories/carla_memories_10_0.3 --initial_memory_threshold 0.3`
 
 Note: The generated memories might differ from the exisitng ones, depending on the value of the initial random seed. 

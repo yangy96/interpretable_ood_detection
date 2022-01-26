@@ -26,7 +26,7 @@ from memories.carla_data import carla_data
 f_zeros = 4
 random.seed(1)
 
-verbosity = True
+verbosity = False
 
 def epanechnikov_kernel(x,bandwidth):
     kernel = 'epanechnikov'
@@ -70,7 +70,6 @@ class memorization :
                     
 
             t1 = time.time()
-            print("Reading done. Time taken - ",  t1-t0, " seconds. No of lidar scans - ", len(self.data_container))
 
         self.current_memory_dictionary = {}
 
@@ -89,7 +88,6 @@ class memorization :
 
         memory_index = 1
         while len(unsolved_set) > 0 :
-            print("unsolved_set length", len(unsolved_set))
             dir_name = str(memory_index).zfill(f_zeros) + self.memory_suffix
             current_memory_dir = os.path.join(self.memory_dir, dir_name)
 
@@ -150,7 +148,6 @@ class memorization :
 
             # If new cost is less than current best cost, take the change
             if (new_cost is not None) and new_cost < current_cost :
-                print("Updating new cost - ", new_cost)
                 current_cost = new_cost
 
             if current_cost < best_cost:
@@ -177,6 +174,7 @@ class memorization :
                 if not os.path.exists(current_memory_dir):
                     os.mkdir(current_memory_dir)
                 current_memory.save_memory(current_memory_dir)
+        print("Total number of memories: ", len(self.current_memory_dictionary))
 
 
     def do_local_search(self, initial_cost, medoid_to_data_dist, data_to_medoid_dist, local_steps):
@@ -384,7 +382,6 @@ class memorization :
                 if current_memory_filemame not in data_to_medoid_distance[each_data_file].keys():
                     data_to_medoid_distance[each_data_file][current_memory_filemame] = all_distances[each_data_file]
                 else:
-                    print("Attempting to overwrite distance")
                     assert False
 
 
@@ -462,7 +459,6 @@ class memorization :
             for i in all_distances.keys():
                 all_distances[i]=float(all_distances[i])
             self.current_memory_dictionary[each_memory].save_distance_other_memories(os.path.join(memory_dir,each_memory),all_distances)
-            print("finish one memory")
             
 
 
@@ -540,5 +536,4 @@ class memorization :
             std += np.square((np.array(self.current_memory_dictionary[each_memory].data_point.carla_tensor.detach().cpu()) - mean))* self.current_memory_dictionary[each_memory].weight
         std = np.sqrt(std)
         bandwidth = 1.06*std*(len(data_dictionary)**())
-        print(bandwidth)
         return bandwidth

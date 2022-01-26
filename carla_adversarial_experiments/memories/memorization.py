@@ -532,5 +532,4 @@ class memorization :
             std += np.square((np.array(self.current_memory_dictionary[each_memory].data_point.carla_tensor.detach().cpu()) - mean))* self.current_memory_dictionary[each_memory].weight
         std = np.sqrt(std)
         bandwidth = 1.06*std*(len(data_dictionary)**())
-        print(bandwidth)
         return bandwidth
