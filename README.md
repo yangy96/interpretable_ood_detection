@@ -9,21 +9,21 @@ Please follow the steps below to reproduce the results.
 
 ## Step 2) Download the data
 
-1. Download CARLA data under this link: https://drive.google.com/file/d/1I1Rm-EziREPiBDAQSraYt0j_VwCbqLZE/view?usp=sharing and put it as `carla_data.tar` in interpretable_ood_detection/carla_experiments folder.
+1. Download CARLA data under this link: https://drive.google.com/file/d/1I1Rm-EziREPiBDAQSraYt0j_VwCbqLZE/view?usp=sharing and put it as `carla_data.tar.gz` in interpretable_ood_detection/carla_experiments folder.
 
 (Note: the data used in this experiment is about 16GB)
 
 2. `cd interpretable_ood_detection/carla_experiments`
 
-3. `tar -xvf carla_data.tar`
+3. `tar -xvf carla_data.tar.gz`
 
-4. Download  CARLA ADVERSARIAL data under this link: https://drive.google.com/file/d/17dKNOAQWOL3KGbv7oj0-rV8FIHcakPPU/view?usp=sharing and put it as `carla_adversarial.tar` in interpretable_ood_detection/carla_adversarial_experiments folder.
+4. Download  CARLA ADVERSARIAL data under this link: https://drive.google.com/file/d/17dKNOAQWOL3KGbv7oj0-rV8FIHcakPPU/view?usp=sharing and put it as `carla_adversarial.tar.gz` in interpretable_ood_detection/carla_adversarial_experiments folder.
  
 (Note: the data used in this experiment is about 16GB)
 
 5. `cd interpretable_ood_detection/carla_adversarial_experiments`
 
-6. `tar -xvf carla_adversarial.tar` 
+6. `tar -xvf carla_adversarial.tar.gz` 
 
 ## Step 3) Set up the environment
 
