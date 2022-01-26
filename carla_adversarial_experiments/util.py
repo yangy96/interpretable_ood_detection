@@ -45,16 +45,16 @@ def plot_one_result(memory_dir,window_size,dist,window_threshold):
 
 def plot_ablation():
     prob_list=[0.05,0.1,0.2,0.25,0.3,0.35,0.4,0.45,0.5]
-    win_thre = [5,5,7,9]
+    win_thres_list = [5,5,7,9]
     window_size=[5,10,10,10]
     dist_list=[0.5,0.6]
 
-    correct_prediction={dist:{str(m)+"/"+str(n): [] for m,n in zip(win_thre,window_size)} for dist in dist_list}
-    false_prediction={dist:{str(m)+"/"+str(n): [] for m,n in zip(win_thre,window_size)} for dist in dist_list}
+    correct_prediction={dist:{str(m)+"/"+str(n): [] for m,n in zip(win_thres_list,window_size)} for dist in dist_list}
+    false_prediction={dist:{str(m)+"/"+str(n): [] for m,n in zip(win_thres_list,window_size)} for dist in dist_list}
     
     
     for dist in dist_list:
-        for win_thre,win_size in zip(win_thre,window_size):
+        for win_thre,win_size in zip(win_thres_list,window_size):
             for prob in prob_list:
                 in_file = "ood_result_adv"+"_"+str(dist)+"_"+str(win_size)+"_"+str(prob)+"_"+str(win_thre)+".json"
                 with open(os.path.join("results",in_file)) as json_file:
@@ -67,7 +67,7 @@ def plot_ablation():
     plt.figure()
 
     for dist in dist_list:
-        for win_thre,win_size in zip(win_thre,window_size):
+        for win_thre,win_size in zip(win_thres_list,window_size):
             plt.plot(prob_list,correct_prediction[dist][str(win_thre)+"/"+str(win_size)], label='d:  '+str(dist)+' T/W: '+str(win_thre)+'/'+str(win_size))
 
     plt.xticks(fontsize=18,weight="bold")
@@ -82,7 +82,7 @@ def plot_ablation():
     plt.figure()
 
     for dist in dist_list:
-        for win_thre,win_size in zip(win_thre,window_size):
+        for win_thre,win_size in zip(win_thres_list,window_size):
             plt.plot(prob_list,false_prediction[dist][str(win_thre)+"/"+str(win_size)], label='d:  '+str(dist)+' T/W: '+str(win_thre)+'/'+str(win_size))
 
     plt.xticks(fontsize=18,weight="bold")
